@@ -28,8 +28,6 @@ Portfolio/
 │   └── styles.css      # Main stylesheet
 ├── js/
 │   └── main.js         # JavaScript functionality
-├── Ibrahim's Resume.pdf # Resume document
-├── Ibrahim's Resume.tex # LaTeX source
 └── README.md           # Project documentation
 ```
 
