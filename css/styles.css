@@ -471,95 +471,46 @@ body {
     background-color: #f9fafb;
 }
 
-.experience-timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
 }
 
-.experience-timeline::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #e5e7eb;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    padding-left: 80px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 21px;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    background: #2563eb;
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 0 0 4px #e5e7eb;
-}
-
-.timeline-date {
-    color: #2563eb;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content {
+.experience-card {
     background: white;
+    border-radius: 16px;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #e5e7eb;
 }
 
-.timeline-content h3 {
-    font-size: 1.3rem;
-    color: #1f2937;
-    margin-bottom: 0.5rem;
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.timeline-content h4 {
-    color: #2563eb;
-    margin-bottom: 0.3rem;
-}
-
-.timeline-content p {
-    color: #6b7280;
+.experience-logo {
+    width: 80px;
+    height: 80px;
     margin-bottom: 1rem;
+    border-radius: 50%;
+    object-fit: contain;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-content ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.timeline-content li {
+.experience-description {
     color: #4b5563;
-    margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.timeline-content li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #2563eb;
-    font-weight: bold;
+    line-height: 1.6;
+    margin-top: 1rem;
 }
 
 /* Skills Section */
 .skills {
     padding: 100px 0;
-    background-color: white;
+    background-color: #f9fafb;
 }
 
 .skills-grid {
@@ -569,7 +520,7 @@ body {
 }
 
 .skill-category {
-    background: #f9fafb;
+    background: #ffffff;
     padding: 2rem;
     border-radius: 16px;
     border: 2px solid #e5e7eb;
@@ -595,13 +546,13 @@ body {
 }
 
 .skill-item {
-    background: white;
-    color: #374151;
+    background: #e0e7ff;
+    color: #3730a3;
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid #d1d5db;
+    border: 1px solid #c7d2fe;
     transition: all 0.3s ease;
 }
 
@@ -664,144 +615,101 @@ body {
 /* Certifications Section */
 .certifications {
     padding: 100px 0;
-    background-color: white;
+    background-color: #f9fafb;
 }
 
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
 }
 
-.cert-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.cert-card-link:hover {
-    transform: translateY(-5px);
-}
-
-.cert-card {
+.certification-card {
     background: white;
-    padding: 2rem;
     border-radius: 16px;
+    padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border-left: 4px solid #2563eb;
-    position: relative;
-    cursor: pointer;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    text-align: center;
+    border: 1px solid #e5e7eb;
 }
 
-.cert-card-link .cert-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-left-color: #7c3aed;
-}
-
-.cert-card-no-link {
-    cursor: default;
-}
-
-.cert-card-no-link:hover {
+.certification-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.cert-provider {
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: inline-block;
+.certification-logo {
+    width: 80px;
+    height: 80px;
     margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    border-radius: 50%;
+    object-fit: contain;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cert-card h4 {
-    font-size: 1.2rem;
+.certification-organization {
     font-weight: 600;
-    margin-bottom: 0.75rem;
     color: #1f2937;
-    line-height: 1.4;
+    margin-bottom: 0.5rem;
 }
 
-.cert-date {
+.certification-date {
     color: #6b7280;
     font-size: 0.9rem;
-    font-weight: 500;
-    margin-top: auto;
+    font-style: italic;
+    margin-bottom: 1rem;
 }
 
-.cert-link-icon {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
+.certification-id {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.certification-link {
+    display: inline-block;
     color: #2563eb;
-    font-size: 1.1rem;
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
 }
 
-.cert-card-link:hover .cert-link-icon {
-    opacity: 1;
-    transform: scale(1.15) rotate(12deg);
-    color: #7c3aed;
+.certification-link:hover {
+    color: #1d4ed8;
 }
 
-/* Certification hover animations */
-.cert-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
-    border-radius: 16px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.cert-card:hover::before {
-    opacity: 1;
+.certification-skills {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    line-height: 1.6;
 }
 
 /* Contact Section */
 .contact {
     padding: 100px 0;
-    background-color: white;
+    background-color: #f9fafb;
 }
 
-.contact-content {
+.contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
 }
 
-.contact-info h3 {
-    font-size: 2rem;
-    color: #1f2937;
-    margin-bottom: 1rem;
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.contact-info > p {
-    color: #4b5563;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-
-.contact-details {
-    margin-bottom: 2rem;
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .contact-item {
@@ -837,41 +745,60 @@ body {
     text-decoration: underline;
 }
 
-.contact-social {
-    display: flex;
-    gap: 1rem;
-}
-
 .contact-form {
-    background: #f9fafb;
+    background: white;
     padding: 2rem;
     border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.form-group {
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    color: #1f2937;
     margin-bottom: 1.5rem;
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: block;
     width: 100%;
-    padding: 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    font-family: inherit;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #2563eb;
+.contact-form input[type="submit"] {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
+.contact-form input[type="submit"]:hover {
+    background-color: #1d4ed8;
 }
 
 /* Footer */
@@ -884,6 +811,100 @@ body {
 
 .footer-content p {
     margin-bottom: 0.5rem;
+}
+
+/* Volunteering Section */
+.volunteering {
+    padding: 100px 0;
+    background-color: #f9fafb;
+}
+
+.volunteering-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.volunteering-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.volunteering-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.volunteering-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    object-fit: contain;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.volunteering-organization {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.volunteering-date {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.volunteering-description {
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Languages Section */
+.languages {
+    padding: 100px 0;
+    background-color: #f9fafb;
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.language-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.language-card h3 {
+    color: #1f2937;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.language-proficiency {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-style: italic;
 }
 
 /* Responsive Design */

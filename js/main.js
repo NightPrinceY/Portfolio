@@ -100,30 +100,28 @@ function initScrollAnimations() {
     });
 }
 
-// Contact form handling
-const contactForm = document.getElementById('contact-form');
+// Initialize EmailJS
+emailjs.init('jQwy2GsGRhlvJvFUQ'); // Your Public Key as User ID
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-    
-    // Create mailto link
-    const mailtoLink = `mailto:ibrahimhen846@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message
-    showNotification('Email client opened! Thank you for your message.', 'success');
-    
-    // Reset form
-    contactForm.reset();
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    const btn = document.querySelector('.btn-primary');
+    btn.textContent = 'Sending...';
+
+    const serviceID = 'service_cr7vp3l';
+    const templateID = 'template_5l8tbd9';
+
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            btn.textContent = 'Send Message';
+            alert('Message sent successfully!');
+            this.reset(); // Clear the form after submission
+        }, (err) => {
+            btn.textContent = 'Send Message';
+            alert('Failed to send message. Please try again later.');
+            console.error('Error:', err);
+        });
 });
 
 // Notification system
@@ -469,3 +467,7 @@ if ('performance' in window) {
         }, 0);
     });
 }
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
