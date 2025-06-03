@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Hendawi - Data Science & AI Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Ibrahim Hendawi</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Ibrahim Hendawi</span>
+                </h1>
+                <p class="hero-subtitle">AI Developer & Data Science Enthusiast</p>
+                <p class="hero-description">
+                    Developer with a huge interest in Data Science, Machine Learning, Big Data Analysis and AI.
+                    Currently pursuing Bachelor of Artificial Intelligence at Kafrelsheikh University.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/ihendawi" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibrahim-hendawi-7a5655217/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ihendawi" class="social-link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="mailto:ibrahimhen846@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/hero.jpg" alt="Ibrahim Hendawi - Data Science & AI Developer" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate AI developer currently pursuing my Bachelor's degree in Artificial Intelligence 
+                        at Kafrelsheikh University. My journey in technology has been driven by a deep fascination with 
+                        data science, machine learning, and big data analysis.
+                    </p>
+                    <p>
+                        Through various training programs and hands-on projects, I've developed expertise in computer vision, 
+                        natural language processing, and machine learning algorithms. I'm particularly interested in applying 
+                        AI solutions to real-world problems, especially in healthcare and business intelligence.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>4+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Certifications</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2</h3>
+                            <p>Years Learning</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-education">
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <h4>Bachelor of Artificial Intelligence</h4>
+                        <p class="education-school">Kafrelsheikh University</p>
+                        <p class="education-date">October 2021 - Present</p>
+                        <p class="education-location">Kafr El Sheikh, Egypt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Respiration Rate Detection</h3>
+                        <div class="project-date">May 2024</div>
+                    </div>
+                    <p class="project-description">
+                        Python application utilizing OpenCV to accurately detect the chest area and calculate 
+                        the patient's respiration rate. Deployed as a web app and Docker container on Microsoft Azure.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Azure</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ihendawi/RespirationRate-Container.git" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Cardiovascular Disease Detection</h3>
+                        <div class="project-date">December 2024</div>
+                    </div>
+                    <p class="project-description">
+                        Machine learning model for heart disease classification using Stacking Learning. 
+                        Provided valuable insights into risk factors and predictive measures for heart diseases.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">EDA</span>
+                        <span class="tag">Stacking Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ihendawi/Cardio_Vascular.git" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Amazon Reviews Classification</h3>
+                        <div class="project-date">December 2023</div>
+                    </div>
+                    <p class="project-description">
+                        Sentiment analysis on Amazon Reviews Dataset using LSTM neural networks for 
+                        natural language processing and text classification.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">LSTM</span>
+                        <span class="tag">TensorFlow</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ihendawi/Amazon_reviews_classification.git" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Smart Pharmacy</h3>
+                        <div class="project-date">September 2023</div>
+                    </div>
+                    <p class="project-description">
+                        IoT project with Arduino and CNC Board controlled via mobile phone. 
+                        Includes Android app with Bluetooth connectivity and user dashboard.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">C</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">Android</span>
+                        <span class="tag">Bluetooth</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/ihendawi/Smart_Pharmacy.git" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024 - August 2024</div>
+                    <div class="timeline-content">
+                        <h3>Cyber Security Intern</h3>
+                        <h4>TelecomEgypt</h4>
+                        <p>Smart Village (on-site)</p>
+                        <ul>
+                            <li>Comprehensive cybersecurity training program</li>
+                            <li>Hands-on experience with security tools and protocols</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2024 - April 2024</div>
+                    <div class="timeline-content">
+                        <h3>Computer Vision Mentor</h3>
+                        <h4>Microsoft Student Ambassador Kafrelsheikh SC</h4>
+                        <p>Kafr El Sheikh (Hybrid)</p>
+                        <ul>
+                            <li>Holding Computer Vision sessions for students</li>
+                            <li>Mentoring students in AI and computer vision projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">C/C++</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">LaTeX</span>
+                        <span class="skill-item">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Concepts</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Big Data</span>
+                        <span class="skill-item">DevOps</span>
+                        <span class="skill-item">Data Analytics</span>
+                        <span class="skill-item">OOP</span>
+                        <span class="skill-item">Data Science</span>
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">LLM</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Developer Tools</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">VSCode</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Microsoft Azure</span>
+                        <span class="skill-item">Microsoft Fabric</span>
+                        <span class="skill-item">Anaconda</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Technologies/Frameworks</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">NLTK</span>
+                        <span class="skill-item">Tableau</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/31e5ed19060bf396220e34475f19962dbfdae4a1" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">DataCamp</div>
+                        <h4>PostgreSQL Summary Stats and Window Functions</h4>
+                        <p class="cert-date">September 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/98d733b3f3463dc76b5ef7724849a18d85390986" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">DataCamp</div>
+                        <h4>Data Manipulation in SQL</h4>
+                        <p class="cert-date">September 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/f787e655cf32b960411de668221f0a877053feca" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">DataCamp</div>
+                        <h4>Joining Data in SQL</h4>
+                        <p class="cert-date">September 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/0a4a55e38a3be74de41a3d40263bd0e4196bd78a" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">DataCamp</div>
+                        <h4>Intermediate SQL</h4>
+                        <p class="cert-date">September 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/e595f217f0d4699d75bb0bd72516e626d626171c" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">DataCamp</div>
+                        <h4>Introduction to SQL</h4>
+                        <p class="cert-date">September 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://courses.cognitiveclass.ai/certificates/06fd6d81006a4b87ac9d3ab6aaaf44e2" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">Cognitive Class</div>
+                        <h4>Big Data 101</h4>
+                        <p class="cert-date">September 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <div class="cert-card cert-card-no-link">
+                    <div class="cert-provider">Mahara Tech</div>
+                    <h4>Applied Deep Learning</h4>
+                    <p class="cert-date">September 2024</p>
+                </div>
+                <a href="https://www.kaggle.com/learn/certification/ibrahimhendawi/computer-vision" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">Kaggle</div>
+                        <h4>Computer Vision</h4>
+                        <p class="cert-date">August 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.kaggle.com/learn/certification/ibrahimhendawi/intro-to-deep-learning" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">Kaggle</div>
+                        <h4>Intro to Deep Learning</h4>
+                        <p class="cert-date">August 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/learning/certificates/2b3baacae85b7e19a98b11422b0d2d570f2e31089bd058fc973a2476866e5080" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">LinkedIn Learning</div>
+                        <h4>Learning Data Analytics: Foundations</h4>
+                        <p class="cert-date">August 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/learning/certificates/196eecc6ca24087866ae3ee0adcdcb352a914821c3e303da4c0210cedeca7130" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">LinkedIn Learning</div>
+                        <h4>Introduction to Career Skills in Data Analytics</h4>
+                        <p class="cert-date">July 2024</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://coursera.org/share/2eb9fb66375376b3c44452a912dca02f" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">Coursera</div>
+                        <h4>Supervised Machine Learning: Regression and Classification</h4>
+                        <p class="cert-date">September 2023</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+                <a href="https://www.udacity.com/certificate/37XGH3RF" target="_blank" class="cert-card-link">
+                    <div class="cert-card">
+                        <div class="cert-provider">Udacity</div>
+                        <h4>Data Analysis Challenger Track</h4>
+                        <p class="cert-date">September 2022</p>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:ibrahimhen846@gmail.com">ibrahimhen846@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+201033607616">+20 1033607616</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Kafr El Sheikh, Egypt</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="https://github.com/ihendawi" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ibrahim-hendawi-7a5655217/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ibrahimhen846@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ibrahim Hendawi. All rights reserved.</p>
+                <p>Built with passion for AI and Data Science</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
