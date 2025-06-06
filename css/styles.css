@@ -39,24 +39,32 @@ body {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+.nav-logo h2 {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 1.8rem; /* Slightly larger font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove padding */
+}
+
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px; /* Make the navigation bar wider */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px; /* Add more padding for spacing */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-logo h2 {
-    color: #2563eb;
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-
 .nav-menu {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem; /* Increase spacing between links */
     list-style: none;
 }
 
@@ -85,6 +93,20 @@ body {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-link.btn-resume {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    padding: 10px 20px; /* Adjust padding for better button size */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link.btn-resume:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .hamburger {
@@ -745,60 +767,74 @@ body {
     text-decoration: underline;
 }
 
+/* Contact Form Styling */
 .contact-form {
     background: white;
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-}
-
-.contact-form:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    max-width: 600px; /* Increase the maximum width */
+    width: 100%; /* Ensure it takes full width within its container */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-form h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #1f2937;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .contact-form .form-group {
+    width: 100%; /* Ensure inputs take full width */
     margin-bottom: 15px;
-}
-
-.contact-form label {
-    display: block;
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 5px;
 }
 
 .contact-form input,
 .contact-form textarea {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-.contact-form input[type="submit"] {
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: none; /* Prevent resizing */
+    height: 120px; /* Set a fixed height */
+}
+
+.contact-form button {
     background-color: #2563eb;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Full width for consistency */
+    font-weight: 600;
 }
 
-.contact-form input[type="submit"]:hover {
+.contact-form button:hover {
     background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
 /* Footer */
@@ -1044,4 +1080,18 @@ body {
 /* Smooth scrolling offset for fixed navbar */
 section {
     scroll-margin-top: 80px;
+}
+
+.nav-link.btn-resume {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link.btn-resume:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }

@@ -124,6 +124,22 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         });
 });
 
+document.getElementById('custom-contact-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Simulate sending the form data to your email
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+    console.log(`Message: ${message}`);
+
+    alert('Your message has been sent successfully!');
+    this.reset(); // Clear the form after submission
+});
+
 // Notification system
 function showNotification(message, type = 'info') {
     // Remove existing notification
