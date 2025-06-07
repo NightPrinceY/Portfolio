@@ -1,16 +1,12 @@
-FROM nginx:alpine
+FROM python:3.11-alpine
 
-# Set working directory (optional for this case)
-WORKDIR /usr/share/nginx/html
+WORKDIR /app
 
-# Copy website files to the default nginx HTML folder
-COPY . /usr/share/nginx/html
+# Copy your static site files into /app
+COPY . .
 
-# Remove default nginx site config
-RUN rm /etc/nginx/conf.d/default.conf
+# Expose the port Hugging Face expects
+EXPOSE 7860
 
-# Copy your custom nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose the port your nginx.conf is listening on
-EXPOSE 8000
+# Run Python's simple HTTP server on port 7860 serving the /app directory
+CMD ["python3", "-m", "http.server", "7860", "--directory", "/app"]
