@@ -103,41 +103,41 @@ function initScrollAnimations() {
 // Initialize EmailJS
 emailjs.init('jQwy2GsGRhlvJvFUQ'); // Your Public Key as User ID
 
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const modal = document.getElementById('confirmation-modal');
+  const closeModal = document.getElementById('close-modal');
 
-    const btn = document.querySelector('.btn-primary');
-    btn.textContent = 'Sending...';
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    const serviceID = 'service_cr7vp3l';
-    const templateID = 'template_5l8tbd9';
+      const formData = new FormData(form);
 
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-            btn.textContent = 'Send Message';
-            alert('Message sent successfully!');
-            this.reset(); // Clear the form after submission
-        }, (err) => {
-            btn.textContent = 'Send Message';
-            alert('Failed to send message. Please try again later.');
-            console.error('Error:', err);
-        });
-});
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          modal.style.display = 'flex';
+          form.reset();
+        } else {
+          alert('There was a problem sending your message. Please try again.');
+        }
+      }).catch(() => {
+        alert('There was a problem sending your message. Please try again.');
+      });
+    });
+  }
 
-document.getElementById('custom-contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Simulate sending the form data to your email
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Message: ${message}`);
-
-    alert('Your message has been sent successfully!');
-    this.reset(); // Clear the form after submission
+  if (closeModal) {
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  }
 });
 
 // Notification system
@@ -485,5 +485,42 @@ if ('performance' in window) {
 }
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const modal = document.getElementById('confirmation-modal');
+  const closeModal = document.getElementById('close-modal');
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          modal.style.display = 'flex';
+          form.reset();
+        } else {
+          alert('There was a problem sending your message. Please try again.');
+        }
+      }).catch(() => {
+        alert('There was a problem sending your message. Please try again.');
+      });
+    });
+  }
+
+  if (closeModal) {
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  }
+});
 
 
