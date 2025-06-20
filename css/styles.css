@@ -346,6 +346,18 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.22s, transform 0.18s, background 0.22s, color 0.22s;
+    cursor: pointer;
+}
+.stat:hover {
+    box-shadow: 0 12px 32px rgba(37,99,235,0.13);
+    transform: translateY(-4px) scale(1.04);
+    background: #2563eb;
+    color: #fff;
+}
+.stat:hover h3,
+.stat:hover p {
+    color: #fff;
 }
 
 .stat h3 {
@@ -367,11 +379,32 @@ body {
 }
 
 .education-item {
-    background: white;
+    background: #f7faff;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.08);
     margin-bottom: 1.5rem;
+    transition: box-shadow 0.22s, transform 0.18s, background 0.22s, color 0.22s, border 0.22s;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+}
+.education-item:hover {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 12px 32px rgba(37,99,235,0.16);
+    border: 2.5px solid #2563eb;
+    transform: translateY(-4px) scale(1.025);
+}
+.education-item:hover h4,
+.education-item:hover .education-school,
+.education-item:hover .education-date,
+.education-item:hover .education-location {
+    color: #fff;
+}
+.education-item:hover .education-logo {
+    box-shadow: 0 4px 24px rgba(255,255,255,0.18);
+    background: #fff;
+    filter: brightness(1.1) drop-shadow(0 0 8px #fff8);
 }
 
 .education-item h4 {
@@ -400,6 +433,26 @@ body {
     color: #6b7280;
 }
 
+.education-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+    background: #fff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.education-logo:hover {
+    box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+    transform: scale(1.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
 /* Projects Section */
 .projects {
     padding: 100px 0;
@@ -417,13 +470,14 @@ body {
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.22s, transform 0.18s, border 0.22s;
+    border: 2px solid #e5e7eb;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #2563eb;
+    transform: translateY(-4px) scale(1.025);
+    box-shadow: 0 20px 40px rgba(37,99,235,0.16);
 }
 
 .project-header {
@@ -947,18 +1001,26 @@ body {
 }
 
 .language-card {
-    background: white;
+    background: #f7faff;
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.08);
     text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.22s, transform 0.18s, background 0.22s, color 0.22s;
+    border: 2px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
 }
-
 .language-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 12px 32px rgba(37,99,235,0.16);
+    border: 2.5px solid #2563eb;
+    transform: translateY(-4px) scale(1.025);
+}
+.language-card:hover h3,
+.language-card:hover .language-proficiency {
+    color: #fff;
 }
 
 .language-card h3 {
