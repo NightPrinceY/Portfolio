@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Code Generator - Cellula Technologies | Yahya Alnwsany</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Project Detail Page Styles */
+        .project-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #e9d5ff;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #c4b5fd;
+        }
+
+        .meta-item i {
+            color: #fbbf24;
+        }
+
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1e40af;
+        }
+
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: #64748b;
+        }
+
+        .project-section {
+            padding: 80px 0;
+        }
+
+        .project-section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid #a855f7;
+        }
+
+        .overview-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overview-card h4 i {
+            color: #a855f7;
+        }
+
+        .overview-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .rag-architecture {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #0ea5e9;
+        }
+
+        .rag-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .rag-step {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .rag-step::after {
+            content: '→';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #0ea5e9;
+            font-weight: bold;
+        }
+
+        .rag-step:last-child::after {
+            display: none;
+        }
+
+        .rag-step h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .rag-step p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .dataset-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .dataset-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dataset-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .dataset-card h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .dataset-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .pipeline-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #22c55e;
+        }
+
+        .pipeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pipeline-step {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pipeline-step h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pipeline-step p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .link-card a:hover {
+            color: #1e40af;
+        }
+
+        .methodology-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .methodology-steps li {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .methodology-steps li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .methodology-steps {
+            counter-reset: step-counter;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid #22c55e;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #16a34a;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid #c7d2fe;
+        }
+
+        .challenges-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .challenges-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .challenges-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .back-section {
+            background: #1e293b;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content-container {
+                padding: 2rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rag-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .rag-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span class="separator">/</span>
+            <a href="../experience/cellula-technologies.html">Cellula Technologies</a>
+            <span class="separator">/</span>
+            <span>RAG Code Generator</span>
+        </div>
+    </div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <h1 class="project-title">CodeGenBot - RAG Code Assistant</h1>
+            <p class="project-subtitle">Retrieval-augmented Python code generation using HumanEval dataset and DeepSeek-R1</p>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Week 3</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Duration: 1 week</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span>RAG, HumanEval, DeepSeek-R1, Semantic Search</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Overview</h2>
+                <p class="subtitle">Understanding the challenge and solution approach</p>
+            </div>
+            <div class="content-container">
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h4><i class="fas fa-bullseye"></i> Problem Statement</h4>
+                        <p>Build a retrieval-augmented code generation assistant that can provide context-aware Python code suggestions grounded in real coding examples from the HumanEval dataset, enhancing developer productivity and code quality.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-lightbulb"></i> Solution Approach</h4>
+                        <p>Implemented a RAG system combining semantic search with Sentence Transformers over HumanEval dataset and DeepSeek-R1-Distill-Qwen-1.5B for high-quality, context-aware Python code generation through a conversational Streamlit interface.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-chart-line"></i> Expected Outcome</h4>
+                        <p>Create a production-ready code generation assistant that can understand coding context, retrieve relevant examples, and generate accurate Python code solutions, significantly improving developer productivity and code quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset & Foundation -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dataset & Foundation</h2>
+                <p class="subtitle">HumanEval dataset and semantic search foundation</p>
+            </div>
+            <div class="content-container">
+                <div class="dataset-section">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">HumanEval Dataset</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">
+                        The system leverages the <strong>HumanEval dataset</strong> - a comprehensive collection of real-world Python coding problems and solutions. This dataset provides the foundation for semantic search and context-aware code generation.
+                    </p>
+                    <div class="dataset-info">
+                        <div class="dataset-card">
+                            <h5>Dataset Source</h5>
+                            <p>OpenAI HumanEval</p>
+                        </div>
+                        <div class="dataset-card">
+                            <h5>Content Type</h5>
+                            <p>Python Problems & Solutions</p>
+                        </div>
+                        <div class="dataset-card">
+                            <h5>Format</h5>
+                            <p>Parquet Files</p>
+                        </div>
+                        <div class="dataset-card">
+                            <h5>Use Case</h5>
+                            <p>Semantic Search Context</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RAG Architecture -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>RAG Architecture & Pipeline</h2>
+                <p class="subtitle">How the Retrieval-Augmented Generation system works</p>
+            </div>
+            <div class="content-container">
+                <div class="rag-architecture">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">RAG Flow Process</h3>
+                    <div class="rag-flow">
+                        <div class="rag-step">
+                            <h5>User Query</h5>
+                            <p>Python coding prompt input</p>
+                        </div>
+                        <div class="rag-step">
+                            <h5>Semantic Embedding</h5>
+                            <p>all-MiniLM-L6-v2 encoding</p>
+                        </div>
+                        <div class="rag-step">
+                            <h5>Vector Search</h5>
+                            <p>Retrieve similar problems</p>
+                        </div>
+                        <div class="rag-step">
+                            <h5>Context Fusion</h5>
+                            <p>Combine query + examples</p>
+                        </div>
+                        <div class="rag-step">
+                            <h5>Code Generation</h5>
+                            <p>DeepSeek-R1 synthesis</p>
+                        </div>
+                        <div class="rag-step">
+                            <h5>Chat Output</h5>
+                            <p>Formatted code response</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-section">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">Modular Pipeline Components</h3>
+                    <div class="pipeline-steps">
+                        <div class="pipeline-step">
+                            <h5>Embedding Module</h5>
+                            <p>Sentence Transformers for semantic encoding</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h5>Retrieval Module</h5>
+                            <p>Vector search and context selection</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h5>Generation Module</h5>
+                            <p>DeepSeek-R1 code synthesis</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h5>UI Module</h5>
+                            <p>Streamlit conversational interface</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Methodology & Implementation</h2>
+                <p class="subtitle">Step-by-step approach to building the RAG code generator</p>
+            </div>
+            <div class="content-container">
+                <ol class="methodology-steps">
+                    <li><strong>HumanEval Dataset Integration:</strong> Integrated the OpenAI HumanEval dataset containing real-world Python coding problems and solutions, providing a comprehensive foundation for semantic search and context retrieval.</li>
+                    
+                    <li><strong>Semantic Search Implementation:</strong> Implemented semantic search using Sentence Transformers (all-MiniLM-L6-v2) to embed and retrieve similar coding problems from the HumanEval dataset for context-aware code generation.</li>
+                    
+                    <li><strong>DeepSeek-R1 Model Integration:</strong> Integrated DeepSeek-R1-Distill-Qwen-1.5B via HuggingFace Inference API for high-quality Python code generation, leveraging retrieved context for improved accuracy.</li>
+                    
+                    <li><strong>Modular Pipeline Development:</strong> Built a clean, modular pipeline with separate components for embedding, retrieval, and generation logic, ensuring easy extension and maintenance.</li>
+                    
+                    <li><strong>Context-Aware Generation:</strong> Developed algorithms to effectively combine user queries with retrieved coding examples, enabling the LLM to generate more accurate and relevant code solutions.</li>
+                    
+                    <li><strong>Streamlit Chat Interface:</strong> Created a conversational Streamlit chatbot with code formatting, chat history, error handling, and real-time code generation capabilities.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Performance -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Results & Performance</h2>
+                <p class="subtitle">Key metrics and achievements from the RAG code generator</p>
+            </div>
+            <div class="content-container">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value">HumanEval</div>
+                        <div class="result-label">Real-world Dataset</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">DeepSeek-R1</div>
+                        <div class="result-label">State-of-the-art LLM</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">Semantic Search</div>
+                        <div class="result-label">Context-aware Retrieval</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">Streamlit Chat</div>
+                        <div class="result-label">Conversational UI</div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 3rem; color: #1e293b; font-size: 1.5rem;">Key Achievements</h3>
+                <ul style="margin-top: 1rem; padding-left: 2rem; line-height: 1.8; color: #374151;">
+                    <li>Successfully implemented a production-ready RAG system for Python code generation</li>
+                    <li>Integrated HumanEval dataset with semantic search for context-aware code suggestions</li>
+                    <li>Built a modular, extensible pipeline with clean separation of concerns</li>
+                    <li>Created an intuitive conversational interface for code generation assistance</li>
+                    <li>Demonstrated the power of combining retrieval-augmented generation with modern LLMs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Stack</h2>
+                <p class="subtitle">Technologies and frameworks used in the project</p>
+            </div>
+            <div class="content-container">
+                <div class="tech-stack">
+                    <span class="tech-tag">DeepSeek-R1</span>
+                    <span class="tech-tag">HumanEval</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">Sentence Transformers</span>
+                    <span class="tech-tag">all-MiniLM-L6-v2</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">Hugging Face</span>
+                    <span class="tech-tag">Vector Search</span>
+                    <span class="tech-tag">Semantic Search</span>
+                    <span class="tech-tag">Parquet</span>
+                    <span class="tech-tag">Chatbot</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Links & Resources -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Links & Resources</h2>
+                <p class="subtitle">Access to code, documentation, and resources</p>
+            </div>
+            <div class="content-container">
+                <div class="links-section">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">Code & Resources</h3>
+                    <div class="links-grid">
+                        <div class="link-card">
+                            <h5>Live Demo</h5>
+                            <a href="https://huggingface.co/spaces/NightPrince/CodeGenBot-RAG-Assistant" target="_blank">
+                                <i class="fas fa-play"></i> Hugging Face Space
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>Source Code</h5>
+                            <a href="https://github.com/NightPrinceY/Cellula-NLP-Engineer-Intern/tree/main/Week3" target="_blank">
+                                <i class="fab fa-github"></i> GitHub Repository
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>HumanEval Dataset</h5>
+                            <a href="https://huggingface.co/datasets/openai_humaneval" target="_blank">
+                                <i class="fas fa-database"></i> Hugging Face Dataset
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>DeepSeek-R1 Model</h5>
+                            <a href="https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-instruct" target="_blank">
+                                <i class="fas fa-brain"></i> Hugging Face Model
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>Sentence Transformers</h5>
+                            <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2" target="_blank">
+                                <i class="fas fa-brain"></i> Embedding Model
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges & Solutions -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Challenges & Solutions</h2>
+                <p class="subtitle">Key obstacles encountered and how they were overcome</p>
+            </div>
+            <div class="content-container">
+                <ul class="challenges-list">
+                    <li><strong>Semantic Search Accuracy:</strong> Implemented advanced filtering and ranking algorithms using Sentence Transformers to ensure retrieved code examples are highly relevant to user queries.</li>
+                    
+                    <li><strong>Context Integration:</strong> Developed sophisticated algorithms to effectively combine user queries with retrieved coding examples, enabling the LLM to generate more accurate and relevant code solutions.</li>
+                    
+                    <li><strong>Real-time Performance:</strong> Optimized the RAG pipeline and implemented efficient vector search to achieve reasonable generation times while maintaining high code quality.</li>
+                    
+                    <li><strong>Modular Architecture:</strong> Designed a clean, modular pipeline with separate components for embedding, retrieval, and generation logic, ensuring easy extension and maintenance for future enhancements.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back Button -->
+    <section class="back-section">
+        <div class="container">
+            <a href="../experience/cellula-technologies.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Cellula Technologies
+            </a>
+        </div>
+    </section>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html> 

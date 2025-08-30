@@ -7,6 +7,142 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced Project Cards (copied from experience/cellula-technologies.html) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+            border-color: #2563eb;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .project-date {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #c7d2fe;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #2563eb;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .project-link:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-link.view-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-color: #10b981;
+        }
+
+        .project-link.view-btn:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+    
+    /* Show only first 4 project cards by default; reveal all when .expanded is set */
+    .projects-grid .project-card { display: block; }
+    .projects-grid .project-card:nth-child(n+5) { display: none; }
+    .projects-grid.expanded .project-card { display: block; }
+
+    /* View more container/button */
+    .view-more-container { text-align: center; margin-top: 1.5rem; }
+    #view-more-btn { padding: 0.8rem 1.6rem; font-size: 1rem; border-radius: 10px; cursor: pointer; }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -137,6 +273,34 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
+                <!-- Arabic Transcriber Pro -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🗣️ Arabic Transcriber Pro</h3>
+                        <div class="project-date">Aug 2025</div>
+                    </div>
+                    <p class="project-description">
+                        Convert Arabic speech to accurate text using NVIDIA NeMo inside a Streamlit UI. Supports WAV/MP3/OGG/FLAC/M4A, auto-resampling to 16kHz, downloadable transcripts, and an RTL-friendly interface — hosted on Hugging Face Spaces.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">ASR</span>
+                        <span class="tag">NVIDIA NeMo</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Arabic</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/Arabic-Transcriber-Pro.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/spaces/NightPrince/Arabic-ASR" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-play"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/NightPrinceY/Arabic-Transcriber-Pro" target="_blank" rel="noopener" class="project-link">
+                            <i class="fab fa-github"></i> Source
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Respiration App -->
                 <div class="project-card">
                     <div class="project-header">
@@ -152,38 +316,132 @@
                         <span class="tag">Mobile App</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/NightPrinceY/Respiration-App" target="_blank" class="project-link">
+                        <a href="https://github.com/NightPrinceY/Respiration-App" target="_blank" rel="noopener" class="project-link">
                             <i class="fab fa-github"></i> Code
                         </a>
-                        <a href="https://huggingface.co/spaces/NightPrince/respiration-app" target="_blank" class="project-link">
+                        <a href="https://huggingface.co/spaces/NightPrince/respiration-app" target="_blank" rel="noopener" class="project-link">
                             <i class="fas fa-brain"></i> Hugging Face
                         </a>
-                        <a href="https://hub.docker.com/r/nightprincey/rrhug" target="_blank" class="project-link">
+                        <a href="https://hub.docker.com/r/nightprincey/rrhug" target="_blank" rel="noopener" class="project-link">
                             <i class="fab fa-docker"></i> DockerHub
                         </a>
                     </div>
                 </div>
 
-                <!-- Helmet Detection -->
+                <!-- Cellula: Toxic Content Classification -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Helmet Detection</h3>
-                        <div class="project-date">June 2024</div>
+                        <h3>Toxic Content Classification</h3>
+                        <div class="project-date">Jun 2025</div>
                     </div>
                     <p class="project-description">
-                        Built an intelligent system using YOLO v8 for real-time helmet detection in transportation. Enhances road safety compliance by providing immediate feedback.
+                        Two complementary models for toxic content moderation: a Bidirectional LSTM baseline and a production-tuned DistilBERT fine-tuned with PEFT-LoRA. Includes a robust preprocessing pipeline, multi-label evaluation across 9 toxicity categories, and a Streamlit demo for model inspection.
                     </p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">YOLO</span>
+                        <span class="tag">DistilBERT</span>
+                        <span class="tag">PEFT-LoRA</span>
+                        <span class="tag">LSTM</span>
+                        <span class="tag">NLP</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/NightPrinceY/Helmet-V8" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="projects/toxic-content-classification.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
                         </a>
-                        <a href="https://huggingface.co/spaces/NightPrince/Helmet-Detect-model" target="_blank" class="project-link">
-                            <i class="fas fa-brain"></i> Hugging Face
+                        <a href="https://huggingface.co/NightPrince/peft-distilbert-toxic-classifier" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-brain"></i> DistilBERT Model
+                        </a>
+                        <a href="https://huggingface.co/NightPrince/Toxic_Classification" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-database"></i> LSTM Model
+                        </a>
+                        <a href="https://github.com/NightPrinceY/Cellula-NLP-Engineer-Intern/tree/main/Week1" target="_blank" rel="noopener" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cellula: Toxic Content Classification -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Toxic Content Classification</h3>
+                        <div class="project-date">Jun 2025</div>
+                    </div>
+                    <p class="project-description">
+                        Two complementary models for toxic content moderation: a Bidirectional LSTM baseline and a production-tuned DistilBERT fine-tuned with PEFT-LoRA. Includes a robust preprocessing pipeline, multi-label evaluation across 9 toxicity categories, and a Streamlit demo for model inspection.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">DistilBERT</span>
+                        <span class="tag">PEFT-LoRA</span>
+                        <span class="tag">LSTM</span>
+                        <span class="tag">NLP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/toxic-content-classification.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/NightPrince/peft-distilbert-toxic-classifier" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-brain"></i> DistilBERT Model
+                        </a>
+                        <a href="https://huggingface.co/NightPrince/Toxic_Classification" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-database"></i> LSTM Model
+                        </a>
+                        <a href="https://github.com/NightPrinceY/Cellula-NLP-Engineer-Intern/tree/main/Week1" target="_blank" rel="noopener" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cellula: Dual-Stage Toxic Moderation App -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Dual-Stage Toxic Moderation App</h3>
+                        <div class="project-date">Jun 2025</div>
+                    </div>
+                    <p class="project-description">
+                        Production-ready Streamlit application combining a hard-safety filter (LlamaGuard) with a fine-grained DistilBERT+LoRA classifier. Integrates BLIP for image captioning to support multi-modal moderation and a clear UX for human reviewers.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">LlamaGuard</span>
+                        <span class="tag">BLIP</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Multi-Modal</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/multi-modal-safety-system.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/spaces/NightPrince/Dual-Stage-Toxic-Moderation" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-play"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/NightPrinceY/Cellula-NLP-Engineer-Intern/tree/main/Week2" target="_blank" rel="noopener" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cellula: CodeGenBot - RAG Code Assistant -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>CodeGenBot - RAG Code Assistant</h3>
+                        <div class="project-date">Jun 2025</div>
+                    </div>
+                    <p class="project-description">
+                        Retrieval-augmented code generation assistant using semantic search over HumanEval-style examples and a distilled code model for context-aware Python generation. Packaged in a Streamlit interface with conversational history and code evaluation utilities.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">CodeGen</span>
+                        <span class="tag">Vector Search</span>
+                        <span class="tag">Chatbot</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/rag-code-generator.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/spaces/NightPrince/CodeGenBot-RAG-Assistant" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-play"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/NightPrinceY/Cellula-NLP-Engineer-Intern/tree/main/Week3" target="_blank" rel="noopener" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
                         </a>
                     </div>
                 </div>
@@ -441,6 +699,10 @@
                     </div>
                 </div>
             </div>
+            <!-- View More Button (shows under the projects grid) -->
+            <div class="view-more-container">
+                <button id="view-more-btn" class="btn btn-primary" aria-expanded="false">View more</button>
+            </div>
         </div>
     </section>
 
@@ -569,7 +831,7 @@
                         Skills: Machine Learning · Project Management · Algorithms · Project Planning · AI Solutions · Python · Artificial Intelligence (AI)
                     </p>
                 </div>
-
+           
                 <!-- Ambassador Certificate -->
                 <div class="certification-card">
                     <img src="assets/Solve_hub_logo.jpg" alt="SolveHub Logo" class="certification-logo">
@@ -577,7 +839,19 @@
                     <p class="certification-organization">SolveHub</p>
                     <p class="certification-date">Issued June 2025</p>
                     <p class="certification-id">Role: Ambassador</p>
-                    <a href="info/ambassador.pdf" target="_blank" class="certification-link">
+                    <a href="info/ambassador.pdf" target="_blank" rel="noopener noreferrer" class="certification-link">
+                        <i class="fas fa-file-pdf"></i> View Certificate (PDF)
+                    </a>
+                </div>
+
+                <!-- Cellula NLP Internship Certificate -->
+                <div class="certification-card">
+                    <img src="assets/cellula_technologies_logo.jpeg" alt="Cellula Technologies Logo" class="certification-logo">
+                    <h3>NLP Engineering Internship</h3>
+                    <p class="certification-organization">Cellula Technologies</p>
+                    <p class="certification-date">Issued August 2025</p>
+                    <p class="certification-id">Role: NLP Engineer Intern</p>
+                    <a href="info/Certificate.pdf" target="_blank" rel="noopener noreferrer" class="certification-link">
                         <i class="fas fa-file-pdf"></i> View Certificate (PDF)
                     </a>
                 </div>
@@ -590,23 +864,59 @@
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             <div class="experience-grid">
-                <!-- NVIDIA -->
+                <!-- Jupiter AI Labs -->
                 <div class="experience-card">
-                    <img src="assets/nvidia_logo.jpg" alt="NVIDIA Logo" class="experience-logo">
-                    <h3>Google Cloud & NVIDIA Community Member</h3>
-                    <p class="experience-company">NVIDIA · Part-time</p>
-                    <p class="experience-date">May 2025 - Present · 2 months</p>
+                    <img src="assets/jupiter_ai_labs_logo.jpeg" alt="Jupiter AI Labs Logo" class="experience-logo">
+                    <h3>AI Engineer</h3>
+                    <p class="experience-company">Jupiter AI Labs  · Contract</p>
+                    <p class="experience-date">Aug 2025 - Present · </p>
                     <p class="experience-description">
                         Engaged in community-driven initiatives to explore cutting-edge AI technologies and cloud computing solutions. Collaborated with industry experts to enhance knowledge and contribute to innovative projects.
                     </p>
                 </div>
 
+                <!-- Turing -->
+                <div class="experience-card">
+                    <img src="assets/turingcom_logo.jpeg" alt="Turing Logo" class="experience-logo">
+                    <h3>LLM Engineer</h3>
+                    <p class="experience-company">Turing · Freelance</p>
+                    <p class="experience-date">Aug 2025 - Present · </p>
+                    <p class="experience-description">
+                        Working remotely as an AI Engineer, focusing on developing and implementing cutting-edge AI solutions. Contributing to innovative projects in artificial intelligence and machine learning applications.
+                    </p>
+                </div>
+                 <!-- Cellula Technologies -->
+                <div class="experience-card">
+                    <img src="assets/cellula_technologies_logo.jpeg" alt="Cellula Technologies logo" class="experience-logo">
+                    <h3>NLP Engineer Intern</h3>
+                    <p class="experience-company">Cellula Technologies · Internship</p>
+                    <p class="experience-date">June 2025 - August 2025 · 3 months</p>
+                    <p class="experience-description">
+                        Working as an NLP Engineer Intern, contributing to advanced natural language processing projects and collaborating with a dynamic team to develop innovative AI solutions.
+                    </p>
+                    <button
+                      class="more-details-btn"
+                      onClick="window.open('experience/cellula-technologies.html', '_blank')"
+                    >
+                      More Details
+                    </button>
+                </div>
+                <!-- NVIDIA -->
+                <div class="experience-card">
+                    <img src="assets/nvidia_logo.jpg" alt="NVIDIA Logo" class="experience-logo">
+                    <h3>Google Cloud & NVIDIA Community Member</h3>
+                    <p class="experience-company">NVIDIA · Part-time</p>
+                    <p class="experience-date">May 2025 - Present ·</p>
+                    <p class="experience-description">
+                        Engaged in community-driven initiatives to explore cutting-edge AI technologies and cloud computing solutions. Collaborated with industry experts to enhance knowledge and contribute to innovative projects.
+                    </p>
+                </div>
                 <!-- Hugging Face -->
                 <div class="experience-card">
                     <img src="assets/huggingface_logo.jpg" alt="Hugging Face Logo" class="experience-logo">
                     <h3>Self-Trainee</h3>
                     <p class="experience-company">Hugging Face · Internship</p>
-                    <p class="experience-date">October 2024 - Present · 9 months</p>
+                    <p class="experience-date">October 2024 - Present ·</p>
                     <p class="experience-description">
                         Focused on mastering Transformers and fine-tuning models for NLP tasks. Developed hands-on expertise in Hugging Face tools and contributed to open-source projects.
                     </p>
@@ -617,7 +927,7 @@
                     <img src="assets/ischooltech_logo.jpg" alt="iSchool Logo" class="experience-logo">
                     <h3>Coding Instructor</h3>
                     <p class="experience-company">iSchool · Part-time</p>
-                    <p class="experience-date">October 2024 - Present · 9 months</p>
+                    <p class="experience-date">May 2024 - August 2025 · 16 months</p>
                     <p class="experience-description">
                         Delivered instructor-led training sessions on programming and AI concepts. Inspired students through motivational speaking and leadership, fostering a passion for technology and innovation.
                     </p>
@@ -656,22 +966,7 @@
                     </p>
                 </div>
 
-                <!-- Cellula Technologies -->
-                <div class="experience-card">
-                    <img src="assets/cellula_technologies_logo.jpeg" alt="Cellula Technologies logo" class="experience-logo">
-                    <h3>NLP Engineer Intern</h3>
-                    <p class="experience-company">Cellula Technologies · Internship</p>
-                    <p class="experience-date">Jun 2025 - Present · 1 mo</p>
-                    <p class="experience-description">
-                        Working as an NLP Engineer Intern, contributing to advanced natural language processing projects and collaborating with a dynamic team to develop innovative AI solutions.
-                    </p>
-                    <button
-                      class="more-details-btn"
-                      onClick="window.open('experience/cellula-technologies.html', '_blank')"
-                    >
-                      More Details
-                    </button>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -789,20 +1084,7 @@
                             <a href="https://huggingface.co/NightPrince" target="_blank">NightPrince</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h4>Instagram</h4>
-                            <a href="https://www.instagram.com/nightprince_y/" target="_blank">@nightprince_y</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-twitter"></i>
-                        <div>
-                            <h4>Twitter (X)</h4>
-                            <a href="https://x.com/NightPrince_y" target="_blank">@NightPrince_y</a>
-                        </div>
-                    </div>
+                  
                 </div>
 
                 <!-- Contact Form -->
@@ -850,7 +1132,28 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
+        <!-- Scripts -->
+        <script>
+            (function(){
+                const btn = document.getElementById('view-more-btn');
+                const grid = document.querySelector('.projects-grid');
+                if (!btn || !grid) return;
+
+                // Initialize label based on current state
+                btn.setAttribute('aria-expanded', grid.classList.contains('expanded') ? 'true' : 'false');
+
+                btn.addEventListener('click', function(){
+                    const expanded = grid.classList.toggle('expanded');
+                    btn.textContent = expanded ? 'View less' : 'View more';
+                    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                    if (!expanded) {
+                        // when collapsing, scroll to the top of projects section so user sees first cards
+                        const projectsSection = document.getElementById('projects');
+                        if (projectsSection) projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            })();
+        </script>
+        <script src="js/main.js"></script>
 </body>
 </html>

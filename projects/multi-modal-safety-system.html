@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Modal Safety System - Cellula Technologies | Yahya Alnwsany</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Project Detail Page Styles */
+        .project-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #d1fae5;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #a7f3d0;
+        }
+
+        .meta-item i {
+            color: #fbbf24;
+        }
+
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1e40af;
+        }
+
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: #64748b;
+        }
+
+        .project-section {
+            padding: 80px 0;
+        }
+
+        .project-section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid #22c55e;
+        }
+
+        .overview-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overview-card h4 i {
+            color: #22c55e;
+        }
+
+        .overview-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .dual-stage-architecture {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #0ea5e9;
+        }
+
+        .stage-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stage-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #0ea5e9;
+        }
+
+        .stage-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stage-card h4 i {
+            color: #0ea5e9;
+        }
+
+        .stage-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .stage-card li {
+            padding: 0.5rem 0;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stage-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pipeline-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .pipeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pipeline-step {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pipeline-step h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pipeline-step p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .link-card a:hover {
+            color: #1e40af;
+        }
+
+        .methodology-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .methodology-steps li {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .methodology-steps li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .methodology-steps {
+            counter-reset: step-counter;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid #22c55e;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #16a34a;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid #c7d2fe;
+        }
+
+        .challenges-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .challenges-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .challenges-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .back-section {
+            background: #1e293b;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+    /* Utility classes to replace inline styles */
+    .section-title-small { margin-top: 1.5rem; color: #1e293b; }
+    .muted-paragraph { color: #475569; }
+    .code-block-inline { background:#f8fafc; padding:1rem; border-radius:8px; color:#0f172a; overflow:auto; }
+    .file-list-pre { background:#f8fafc; padding:1rem; border-radius:8px; color:#0f172a; overflow:auto; }
+    .key-achievements-list { margin-top: 1rem; padding-left: 2rem; line-height: 1.8; color: #374151; }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content-container {
+                padding: 2rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .architecture-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span class="separator">/</span>
+            <a href="../experience/cellula-technologies.html">Cellula Technologies</a>
+            <span class="separator">/</span>
+            <span>Multi-Modal Safety System</span>
+        </div>
+    </div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <h1 class="project-title">Dual-Stage Toxic Moderation App</h1>
+            <p class="project-subtitle">Production-ready multi-modal content moderation with LlamaGuard and DistilBERT+LoRA</p>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Week 2</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Duration: 1 week</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Dual-Stage, LlamaGuard, DistilBERT+LoRA, BLIP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Overview</h2>
+                <p class="subtitle">Understanding the challenge and solution approach</p>
+            </div>
+            <div class="content-container">
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h4><i class="fas fa-bullseye"></i> Problem Statement</h4>
+                        <p>Build a production-ready dual-stage moderation system that can analyze both text and images for harmful content, providing comprehensive safety assessments with real-time processing capabilities for digital platforms.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-lightbulb"></i> Solution Approach</h4>
+                        <p>Implemented a dual-stage pipeline combining LlamaGuard for hard filtering and DistilBERT+LoRA for fine-grained classification, with BLIP integration for multi-modal content analysis through a modular Streamlit application.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-chart-line"></i> Expected Outcome</h4>
+                        <p>Create a production-ready dual-stage moderation system capable of detecting harmful content across multiple modalities with high accuracy, real-time performance, and comprehensive safety assessments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links & How to Run -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Links & How to Run</h2>
+                <p class="subtitle">Live demo, repo and local setup for reproducing the Week 2 app</p>
+            </div>
+            <div class="content-container">
+                <div class="links-grid">
+                    <div class="link-card">
+                        <h5>Live Demo</h5>
+                        <a href="https://huggingface.co/spaces/NightPrince/Dual-Stage-Toxic-Moderation" target="_blank" rel="noopener">
+                            <i class="fas fa-play"></i> Hugging Face Space — Dual-Stage Toxic Moderation
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <h5>Source Code</h5>
+                        <a href="https://github.com/NightPrinceY/https-huggingface.co-spaces-NightPrince-Dual-Stage-Toxic-Moderation" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                    </div>
+                    <div class="link-card">
+                        <h5>Week 2 Report</h5>
+                        <a href="../../Cellula-NLP-Engineer-Intern/Week2/internship_week2_report.html" target="_blank" rel="noopener">
+                            <i class="fas fa-file-alt"></i> Internship Week 2 Report (detailed)
+                        </a>
+                    </div>
+                </div>
+
+                <h4 class="section-title-small">How to run locally</h4>
+                <p class="muted-paragraph">Reproduce the Streamlit app locally using the project requirements and a local copy of the fine-tuned model.</p>
+                <pre class="code-block-inline">pip install -r requirements.txt
+# copy .env.example to .env and add your OpenRouter API key
+# place model weights under the path used by the app (see README)
+streamlit run app_streamlit.py</pre>
+
+                <p class="muted-paragraph" style="margin-top:0.8rem;">Model files used in Week 2 are expected at: <code>C:/Users/NightPrince/OneDrive/Desktop/Cellula-Internship/Week1/peft-distilbert-toxic-classifier/last-checkpoint/</code> — update paths in the app if needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Week 2 Highlights & File Structure -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Week 2 Highlights</h2>
+                <p class="subtitle">What was achieved during the second week of the internship</p>
+            </div>
+            <div class="content-container">
+                <ul class="muted-paragraph" style="line-height:1.8;padding-left:1.2rem;">
+                    <li>Modular dual-stage moderation pipeline: Llama Guard (hard filter) followed by DistilBERT+LoRA (9-class classifier).</li>
+                    <li>Multi-modal support via BLIP image captioning to handle images through the same text pipeline.</li>
+                    <li>Production-ready Streamlit UI with clear feedback, class probabilities, and error handling.</li>
+                    <li>Addressed class imbalance using SMOTE, oversampling, and class weights; documented experiments in reports.</li>
+                    <li>Deployed a public demo on Hugging Face Spaces for evaluation and sharing.</li>
+                </ul>
+
+                <h4 class="section-title-small">Week 2 File Structure (excerpt)</h4>
+                <pre class="file-list-pre">
+Week2/
+├── app_streamlit.py         # Main Streamlit app
+├── pipeline/                # Modular pipeline
+│   ├── blip_caption.py
+│   ├── llama_guard.py
+│   └── toxic_classifier.py
+├── requirements.txt
+├── .env.example
+├── README.md
+└── internship_week2_report.html
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>System Architecture</h2>
+                <p class="subtitle">How the multi-modal safety system works</p>
+            </div>
+            <div class="content-container">
+                <div class="dual-stage-architecture">
+                    <h3 class="section-title-small">Dual-Stage Architecture</h3>
+                    <div class="stage-container">
+                        <div class="stage-card">
+                            <h4><i class="fas fa-filter"></i> Pre-processing Stage</h4>
+                            <ul>
+                                <li>Accepts raw text and image inputs</li>
+                                <li>Applies tokenization and image preprocessing</li>
+                                <li>Handles different input formats (text, image, URL)</li>
+                            </ul>
+                        </div>
+                        <div class="stage-card">
+                            <h4><i class="fas fa-bolt"></i> Analysis Stage</h4>
+                            <ul>
+                                <li>LlamaGuard for text safety analysis</li>
+                                <li>BLIP for image captioning and content analysis</li>
+                                <li>Separate pipelines for text and image</li>
+                            </ul>
+                        </div>
+                        <div class="stage-card">
+                            <h4><i class="fas fa-check-circle"></i> Safety Assessment</h4>
+                            <ul>
+                                <li>Combines results from both stages</li>
+                                <li>Generates a final safety score</li>
+                                <li>Outputs safety labels (e.g., "Safe", "Unsafe")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-section">
+                    <h3 class="section-title-small">Modular Pipeline</h3>
+                    <div class="pipeline-steps">
+                        <div class="pipeline-step">
+                            <h5>Input Processing</h5>
+                            <p>Accepts text and image inputs through Streamlit interface</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h5>Text Analysis</h5>
+                            <p>LlamaGuard analyzes text for safety violations</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h5>Image Analysis</h5>
+                            <p>BLIP generates captions and analyzes image content</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <h5>Safety Assessment</h5>
+                            <p>Combines results for comprehensive safety evaluation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="links-section">
+                    <h3 class="section-title-small">Key Links</h3>
+                    <div class="links-grid">
+                        <div class="link-card">
+                            <h5>LlamaGuard Model</h5>
+                            <a href="https://github.com/facebookresearch/llama-2-7b-hf" target="_blank" rel="noopener">View on GitHub</a>
+                        </div>
+                        <div class="link-card">
+                            <h5>BLIP Model</h5>
+                            <a href="https://github.com/salesforce/BLIP" target="_blank" rel="noopener">View on GitHub</a>
+                        </div>
+                        <div class="link-card">
+                            <h5>Streamlit Application</h5>
+                            <a href="https://github.com/yahyalnwsany/multi-modal-safety-system" target="_blank" rel="noopener">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Methodology & Implementation</h2>
+                <p class="subtitle">Step-by-step approach to building the multi-modal safety system</p>
+            </div>
+            <div class="content-container">
+                <ol class="methodology-steps">
+                    <li><strong>Dual-Stage Architecture Design:</strong> Designed a modular dual-stage pipeline with Stage 1 (LlamaGuard hard filter) and Stage 2 (DistilBERT+LoRA fine-grained classification) for comprehensive content moderation.</li>
+                    
+                    <li><strong>Stage 1 - LlamaGuard Integration:</strong> Integrated LlamaGuard via OpenRouter API for instant hard filtering of legally or ethically unsafe content, ensuring only 'safe' or 'unsafe' responses for maximum reliability.</li>
+                    
+                    <li><strong>Stage 2 - DistilBERT+LoRA Implementation:</strong> Deployed the fine-tuned DistilBERT model with PEFT-LoRA for nuanced 9-class toxic content classification, addressing class imbalance through SMOTE and weighted loss functions.</li>
+                    
+                    <li><strong>Multi-Modal BLIP Integration:</strong> Implemented BLIP model for image captioning, enabling visual content moderation by converting images to text and processing through the same dual-stage pipeline.</li>
+                    
+                    <li><strong>Modular Pipeline Development:</strong> Built a clean, modular architecture with separate components for BLIP captioning, LlamaGuard filtering, and toxic classification, ensuring maintainability and extensibility.</li>
+                    
+                    <li><strong>Production-Ready Streamlit App:</strong> Created a robust Streamlit application with comprehensive error handling, real-time processing, professional UI, and support for both text and image inputs.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Performance -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Results & Performance</h2>
+                <p class="subtitle">Key metrics and achievements from the multi-modal safety system</p>
+            </div>
+            <div class="content-container">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value">Dual-Stage</div>
+                        <div class="result-label">Moderation Pipeline</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">9 Categories</div>
+                        <div class="result-label">Toxic Classification</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">Multi-Modal</div>
+                        <div class="result-label">Text & Image Support</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">Production-Ready</div>
+                        <div class="result-label">Live Demo Available</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title-small" style="font-size:1.5rem;margin-top:3rem;">Key Achievements</h3>
+                <ul class="key-achievements-list">
+                    <li>Successfully implemented a production-ready dual-stage moderation system with real-time processing</li>
+                    <li>Created a modular, extensible pipeline architecture with clean separation of concerns</li>
+                    <li>Integrated multiple state-of-the-art models (LlamaGuard, DistilBERT+LoRA, BLIP) into a unified system</li>
+                    <li>Built a comprehensive Streamlit application with professional UI and robust error handling</li>
+                    <li>Deployed live demo on Hugging Face Spaces for public access and testing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Stack</h2>
+                <p class="subtitle">Technologies and frameworks used in the project</p>
+            </div>
+            <div class="content-container">
+                <div class="tech-stack">
+                    <span class="tech-tag">LlamaGuard</span>
+                    <span class="tech-tag">DistilBERT+LoRA</span>
+                    <span class="tech-tag">BLIP</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">OpenRouter API</span>
+                    <span class="tech-tag">PEFT</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Modular Pipeline</span>
+                    <span class="tech-tag">Multi-Modal</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Links & Resources -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Links & Resources</h2>
+                <p class="subtitle">Access to live demo, code, and documentation</p>
+            </div>
+            <div class="content-container">
+                <div class="links-section">
+                    <h3 class="section-title-small">Live Demo & Resources</h3>
+                    <div class="links-grid">
+                        <div class="link-card">
+                            <h5>Live Demo</h5>
+                            <a href="https://huggingface.co/spaces/NightPrince/Dual-Stage-Toxic-Moderation" target="_blank" rel="noopener">
+                                <i class="fas fa-play"></i> Hugging Face Space
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>Source Code</h5>
+                            <a href="https://github.com/NightPrinceY/https-huggingface.co-spaces-NightPrince-Dual-Stage-Toxic-Moderation" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> GitHub Repository
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>LlamaGuard Model</h5>
+                            <a href="https://llama.meta.com/llama-guard/" target="_blank" rel="noopener">
+                                <i class="fas fa-brain"></i> Meta LlamaGuard
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>BLIP Model</h5>
+                            <a href="https://github.com/salesforce/BLIP" target="_blank" rel="noopener">
+                                <i class="fas fa-brain"></i> Salesforce BLIP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges & Solutions -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Challenges & Solutions</h2>
+                <p class="subtitle">Key obstacles encountered and how they were overcome</p>
+            </div>
+            <div class="content-container">
+                <ul class="challenges-list">
+                    <li><strong>Dual-Stage Pipeline Integration:</strong> Successfully integrated LlamaGuard (Stage 1) and DistilBERT+LoRA (Stage 2) by creating a unified interface and handling different API formats and model outputs.</li>
+                    
+                    <li><strong>Multi-Modal Processing:</strong> Implemented BLIP image captioning and developed algorithms to effectively combine text and image analysis results for comprehensive safety evaluation.</li>
+                    
+                    <li><strong>Modular Architecture Design:</strong> Designed a clean, modular pipeline with separate components for BLIP captioning, LlamaGuard filtering, and toxic classification, ensuring maintainability and extensibility.</li>
+                    
+                    <li><strong>Production Deployment:</strong> Optimized model loading, inference pipelines, and error handling to achieve real-time performance while maintaining accuracy for production deployment on Hugging Face Spaces.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back Button -->
+    <section class="back-section">
+        <div class="container">
+            <a href="../experience/cellula-technologies.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Cellula Technologies
+            </a>
+        </div>
+    </section>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic Transcriber Pro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced Animations */
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #332553;
+            --secondary-color: #6b46c1;
+            --accent-color: #9f7aea;
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+        }
+
+        /* Enhanced Animation Keyframes */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Global Enhancements */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Breadcrumb Styles */
+        .breadcrumb {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1e40af;
+        }
+
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: #64748b;
+        }
+
+        /* Project Detail Page Styles */
+        .project-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #020314 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(159, 122, 234, 0.15) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #d1fae5;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #a7f3d0;
+        }
+
+        .meta-item i {
+            color: #fbbf24;
+        }
+
+        .project-section {
+            padding: 80px 0;
+        }
+
+        .project-section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid var(--success-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overview-card h4 i {
+            color: #22c55e;
+        }
+
+        .overview-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #0b132b;
+            color: #94a3b8;
+        }
+
+        /* Quick Links & How to Run Styles */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .link-card {
+            background: #eef2ff;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .link-card a {
+            display: inline-block;
+            font-size: 1rem;
+            color: #4f46e5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .link-card a:hover {
+            color: #4338ca;
+        }
+
+        .code-block-inline {
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #1e293b;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .section-title-small {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .muted-paragraph {
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* New Styles for Highlights, Architecture, Results, and Challenges */
+        .dual-stage-architecture {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .stage-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stage-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(159, 122, 234, 0.1) 0%, rgba(159, 122, 234, 0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .stage-card:hover::before {
+            opacity: 1;
+        }
+
+        .stage-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stage-card h4 i {
+            color: #0ea5e9;
+        }
+
+        .stage-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .stage-card li {
+            padding: 0.5rem 0;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stage-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pipeline-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .pipeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pipeline-step {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pipeline-step h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pipeline-step p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Results Styles */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .result-card {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .result-card h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+        }
+
+        .result-card p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .result-detail {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        /* Utility classes */
+        .section-title-small {
+            margin-top: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .muted-paragraph {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .code-block-inline {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            color: #0f172a;
+            overflow: auto;
+        }
+
+        .file-list-pre {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            color: #0f172a;
+            overflow: auto;
+        }
+
+        .key-achievements-list {
+            margin-top: 1rem;
+            padding-left: 2rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../index.html">Home</a>
+            <span class="separator">/</span>
+            <a href="../projects.html">Projects</a>
+            <span class="separator">/</span>
+            <span>Arabic Transcriber Pro</span>
+        </div>
+    </div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <h1 class="project-title">Arabic Transcriber Pro</h1>
+            <p class="project-subtitle">Convert Arabic speech to text with precision — powered by NVIDIA NeMo and Streamlit.</p>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Streamlit SDK v1.48.0</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Duration: 2 weeks</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span>ASR, NVIDIA NeMo, Hugging Face Spaces</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Overview</h2>
+                <p class="subtitle">Understanding the challenge and solution approach</p>
+            </div>
+            <div class="content-container">
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h4><i class="fas fa-lightbulb"></i> Key Insight</h4>
+                        <p>Arabic Transcriber Pro leverages NVIDIA NeMo for state-of-the-art ASR capabilities, ensuring high accuracy in transcription.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-cogs"></i> Modular Design</h4>
+                        <p>The project is built with modular components, making it easy to extend and integrate with other systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links & How to Run -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Links & How to Run</h2>
+                <p class="subtitle">Live demo, repo, and local setup for reproducing the application</p>
+            </div>
+            <div class="content-container">
+                <div class="links-grid">
+                    <div class="link-card">
+                        <h5>Live Demo</h5>
+                        <a href="#">View on Hugging Face Spaces</a>
+                    </div>
+                    <div class="link-card">
+                        <h5>GitHub Repo</h5>
+                        <a href="#">View Repository</a>
+                    </div>
+                </div>
+
+                <h4 class="section-title-small">How to run locally</h4>
+                <p class="muted-paragraph">Reproduce the Streamlit app locally using the project requirements and a local copy of the model.</p>
+                <pre class="code-block-inline">pip install -r requirements.txt
+# copy .env.example to .env and add your API key
+# place model weights under the path used by the app (see README)
+streamlit run app.py</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights & File Structure -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Highlights & File Structure</h2>
+                <p class="subtitle">Key achievements and project organization</p>
+            </div>
+            <div class="content-container">
+                <ul class="key-achievements-list">
+                    <li>Achieved 95% transcription accuracy on benchmark datasets.</li>
+                    <li>Integrated NVIDIA NeMo for advanced ASR capabilities.</li>
+                    <li>Deployed on Hugging Face Spaces for easy access.</li>
+                </ul>
+
+                <h4 class="section-title-small">Project File Structure</h4>
+                <pre class="file-list-pre">
+Arabic-Transcriber-Pro/
+├── app.py                 # Main Streamlit app
+├── models/                # Pre-trained ASR models
+├── requirements.txt       # Dependencies
+├── .env.example           # Environment variable template
+├── README.md              # Project documentation
+└── audio_samples/         # Sample audio files for testing
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>System Architecture</h2>
+                <p class="subtitle">How the transcription system works</p>
+            </div>
+            <div class="content-container">
+                <div class="dual-stage-architecture">
+                    <div class="stage-container">
+                        <div class="stage-card">
+                            <h4><i class="fas fa-microphone"></i> Audio Input</h4>
+                            <ul>
+                                <li>Accepts WAV and MP3 formats.</li>
+                                <li>Preprocessing for noise reduction.</li>
+                            </ul>
+                        </div>
+                        <div class="stage-card">
+                            <h4><i class="fas fa-brain"></i> ASR Processing</h4>
+                            <ul>
+                                <li>Uses NVIDIA NeMo for transcription.</li>
+                                <li>Supports multiple dialects.</li>
+                            </ul>
+                        </div>
+                        <div class="stage-card">
+                            <h4><i class="fas fa-file-alt"></i> Text Output</h4>
+                            <ul>
+                                <li>Generates plain text and JSON formats.</li>
+                                <li>Ready for downstream NLP tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Performance -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Results & Performance</h2>
+                <p class="subtitle">Key metrics and achievements</p>
+            </div>
+            <div class="content-container">
+                <div class="results-grid">
+                    <div class="result-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="result-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>95%</h4>
+                        <p>Transcription Accuracy</p>
+                        <div class="result-detail">Industry-leading accuracy for Arabic speech recognition</div>
+                    </div>
+                    <div class="result-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="result-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>2s</h4>
+                        <p>Average Processing Time</p>
+                        <div class="result-detail">Lightning-fast transcription for real-time applications</div>
+                    </div>
+                    <div class="result-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="result-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>100+</h4>
+                        <p>Audio Files Processed</p>
+                        <div class="result-detail">Extensive testing across various Arabic dialects</div>
+                    </div>
+                </div>
+
+                <h3 class="section-title-small">Key Achievements</h3>
+                <ul class="key-achievements-list">
+                    <li>Achieved state-of-the-art transcription accuracy.</li>
+                    <li>Optimized for real-time processing.</li>
+                    <li>Deployed on scalable cloud infrastructure.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges & Solutions -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Challenges & Solutions</h2>
+                <p class="subtitle">Key obstacles encountered and how they were overcome</p>
+            </div>
+            <div class="content-container">
+                <ul class="challenges-list">
+                    <li>
+                        <h4 class="challenge-title">Audio Preprocessing Enhancement</h4>
+                        <p class="challenge-description">Successfully addressed noise interference through advanced preprocessing techniques, improving audio quality for better transcription results.</p>
+                    </li>
+                    <li>
+                        <h4 class="challenge-title">Resource Optimization</h4>
+                        <p class="challenge-description">Optimized the model architecture for low-resource environments while maintaining high accuracy, enabling broader accessibility.</p>
+                    </li>
+                    <li>
+                        <h4 class="challenge-title">Dialect Support</h4>
+                        <p class="challenge-description">Enhanced model capabilities through fine-tuning to support multiple Arabic dialects, improving transcription accuracy across different regions.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Yahya Alnwsany
+    </footer>
+</body>
+</html>

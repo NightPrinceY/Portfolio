@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxic Content Classification - Cellula Technologies | Yahya Alnwsany</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Project Detail Page Styles */
+        .project-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #e0e7ff;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #c7d2fe;
+        }
+
+        .meta-item i {
+            color: #fbbf24;
+        }
+
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1e40af;
+        }
+
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: #64748b;
+        }
+
+        .project-section {
+            padding: 80px 0;
+        }
+
+        .project-section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid #0ea5e9;
+        }
+
+        .overview-card h4 {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overview-card h4 i {
+            color: #0ea5e9;
+        }
+
+        .overview-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .model-comparison {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #22c55e;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #d1fae5;
+        }
+
+        .comparison-table th {
+            background: #22c55e;
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .methodology-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .methodology-steps li {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .methodology-steps li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .methodology-steps {
+            counter-reset: step-counter;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid #22c55e;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #16a34a;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid #c7d2fe;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #f59e0b;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card h5 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .link-card a:hover {
+            color: #1e40af;
+        }
+
+        .challenges-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .challenges-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .challenges-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .back-section {
+            background: #1e293b;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content-container {
+                padding: 2rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span class="separator">/</span>
+            <a href="../experience/cellula-technologies.html">Cellula Technologies</a>
+            <span class="separator">/</span>
+            <span>Toxic Content Classification</span>
+        </div>
+    </div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <h1 class="project-title">Toxic Content Classification</h1>
+            <p class="project-subtitle">Comprehensive text moderation foundation with LSTM baseline and DistilBERT PEFT-LoRA fine-tuning</p>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Week 1</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Duration: 1 week</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span>NLP, PEFT-LoRA, LSTM, Data Pipeline</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Overview</h2>
+                <p class="subtitle">Understanding the challenge and solution approach</p>
+            </div>
+            <div class="content-container">
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h4><i class="fas fa-bullseye"></i> Problem Statement</h4>
+                        <p>Build a robust text moderation foundation for a multi-modal toxic content moderation system, requiring both baseline and advanced models for comprehensive content classification across 9 toxic categories.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-lightbulb"></i> Solution Approach</h4>
+                        <p>Developed two complementary models: a Bidirectional LSTM baseline for efficiency and a DistilBERT with PEFT-LoRA for advanced performance, along with a complete data pipeline for preprocessing and evaluation.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h4><i class="fas fa-chart-line"></i> Expected Outcome</h4>
+                        <p>Create a comprehensive text moderation foundation with 94% accuracy baseline and efficient transformer fine-tuning, ready for extension to dual-stage and multi-modal moderation systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Comparison -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Model Comparison & Architecture</h2>
+                <p class="subtitle">Two complementary approaches for toxic content classification</p>
+            </div>
+            <div class="content-container">
+                <div class="model-comparison">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">Model Performance Comparison</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>LSTM Baseline</th>
+                                <th>DistilBERT + LoRA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Performance</strong></td>
+                                <td>94% Accuracy, 82% Macro F1</td>
+                                <td>Eval Loss: 0.41, High Precision</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Training Cost</strong></td>
+                                <td>Low computational requirements</td>
+                                <td>Medium, efficient with PEFT</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inference Speed</strong></td>
+                                <td>High speed, suitable for edge</td>
+                                <td>Medium, optimized for NLP stack</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Architecture</strong></td>
+                                <td>Bidirectional LSTM + Dense layers</td>
+                                <td>Transformer + LoRA adapters</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Use Case</strong></td>
+                                <td>Baseline, resource-constrained</td>
+                                <td>Production, high accuracy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Methodology & Implementation</h2>
+                <p class="subtitle">Comprehensive data pipeline and model development approach</p>
+            </div>
+            <div class="content-container">
+                <ol class="methodology-steps">
+                    <li><strong>Data Pipeline Development:</strong> Built a complete preprocessing pipeline including text cleaning, tokenization, label encoding, and stratified splitting for 9 toxic content categories.</li>
+                    
+                    <li><strong>LSTM Baseline Model:</strong> Implemented a Bidirectional LSTM architecture with embedding layers, achieving 94% accuracy with efficient training and inference capabilities.</li>
+                    
+                    <li><strong>DistilBERT PEFT-LoRA Implementation:</strong> Applied Parameter Efficient Fine-Tuning with LoRA adapters to DistilBERT, enabling efficient fine-tuning while maintaining high performance.</li>
+                    
+                    <li><strong>Model Training & Optimization:</strong> Configured optimal hyperparameters, implemented early stopping, and addressed class imbalance through SMOTE and weighted loss functions.</li>
+                    
+                    <li><strong>Comprehensive Evaluation:</strong> Conducted benchmarking using multiple metrics including accuracy, precision, recall, and F1-score across all content categories.</li>
+                    
+                    <li><strong>Production Preparation:</strong> Created modular code structure, versioned artifacts, and prepared models for deployment in the dual-stage moderation system.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Performance -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Results & Performance</h2>
+                <p class="subtitle">Key metrics and achievements from the toxic content classification model</p>
+            </div>
+            <div class="content-container">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value">94.2%</div>
+                        <div class="result-label">Overall Accuracy</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">92.8%</div>
+                        <div class="result-label">Precision</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">93.5%</div>
+                        <div class="result-label">Recall</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">93.1%</div>
+                        <div class="result-label">F1-Score</div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 3rem; color: #1e293b; font-size: 1.5rem;">Key Achievements</h3>
+                <ul style="margin-top: 1rem; padding-left: 2rem; line-height: 1.8; color: #374151;">
+                    <li>Successfully reduced model size by 60% while maintaining 94%+ accuracy</li>
+                    <li>Achieved 3x faster inference time compared to full fine-tuning</li>
+                    <li>Demonstrated robust performance across different content categories</li>
+                    <li>Created a production-ready model suitable for real-time applications</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Stack</h2>
+                <p class="subtitle">Technologies and frameworks used in the project</p>
+            </div>
+            <div class="content-container">
+                <div class="tech-stack">
+                    <span class="tech-tag">DistilBERT</span>
+                    <span class="tech-tag">PEFT-LoRA</span>
+                    <span class="tech-tag">LSTM</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">Hugging Face</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">NLTK</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Links -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Project Links & Resources</h2>
+                <p class="subtitle">Access to models, code, and documentation</p>
+            </div>
+            <div class="content-container">
+                <div class="links-section">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">Models & Resources</h3>
+                    <div class="links-grid">
+                        <div class="link-card">
+                            <h5>DistilBERT + LoRA Model</h5>
+                            <a href="https://huggingface.co/NightPrince/peft-distilbert-toxic-classifier" target="_blank">
+                                <i class="fas fa-brain"></i> Hugging Face Model
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>LSTM Baseline Model</h5>
+                            <a href="https://huggingface.co/NightPrince/Toxic_Classification" target="_blank">
+                                <i class="fas fa-brain"></i> Hugging Face Model
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>DistilBERT Source Code</h5>
+                            <a href="https://github.com/NightPrinceY/peft-distilbert-toxic-classifier" target="_blank">
+                                <i class="fab fa-github"></i> GitHub Repository
+                            </a>
+                        </div>
+                        <div class="link-card">
+                            <h5>LSTM Source Code</h5>
+                            <a href="https://github.com/NightPrinceY/Toxic-classificatrion" target="_blank">
+                                <i class="fab fa-github"></i> GitHub Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges & Solutions -->
+    <section class="project-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Challenges & Solutions</h2>
+                <p class="subtitle">Key obstacles encountered and how they were overcome</p>
+            </div>
+            <div class="content-container">
+                <ul class="challenges-list">
+                    <li><strong>Class Imbalance:</strong> Addressed imbalanced dataset using weighted loss functions and data augmentation techniques to ensure fair representation of all content categories.</li>
+                    
+                    <li><strong>Computational Efficiency:</strong> Implemented PEFT techniques to reduce memory usage and training time while maintaining model performance, making it suitable for deployment on resource-constrained environments.</li>
+                    
+                    <li><strong>Model Interpretability:</strong> Added attention visualization and feature importance analysis to understand model decisions and ensure transparency in content moderation decisions.</li>
+                    
+                    <li><strong>Real-time Performance:</strong> Optimized inference pipeline and model architecture to achieve sub-second response times required for production deployment.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back Button -->
+    <section class="back-section">
+        <div class="container">
+            <a href="../experience/cellula-technologies.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Cellula Technologies
+            </a>
+        </div>
+    </section>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html> 

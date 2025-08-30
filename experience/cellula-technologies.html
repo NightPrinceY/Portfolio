@@ -2,174 +2,817 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cellula Technologies - NLP Engineer Intern Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellula Technologies - NLP Engineer Intern | Yahya Alnwsany</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Blurred cover image background */
-        .cover-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -2;
-            background: url('../assets/cellula_technologies_cover.jpeg') center center/cover no-repeat;
-            filter: blur(16px) brightness(0.7);
-            opacity: 0.85;
+        /* Hero Section for Internship */
+        .internship-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
-        /* Animated gradient overlay */
-        .animated-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1;
-            background: linear-gradient(120deg, #2563ebcc 0%, #1e293bcc 100%);
-            background-size: 200% 200%;
-            animation: gradientMove 8s ease-in-out infinite;
-            pointer-events: none;
+
+        .internship-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/cellula_bg.png') center center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
         }
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+        .internship-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
         }
-        .experience-detail-card {
-            background: rgba(255,255,255,0.98);
+
+        .company-logo {
+            text-align: center;
+        }
+
+        .company-logo img {
+            width: 200px;
+            height: 200px;
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(37,99,235,0.12);
-            padding: 2.5rem 2rem;
-            max-width: 900px;
-            margin: 80px auto 40px auto;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-info h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .hero-info .role {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .hero-info .duration {
+            font-size: 1.2rem;
+            color: #e5e7eb;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-info .description {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        /* Navigation Breadcrumb */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1e40af;
+        }
+
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: #64748b;
+        }
+
+        /* Enhanced Section Styling */
+        .internship-section {
+            padding: 80px 0;
+        }
+
+        .internship-section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+            border-color: #2563eb;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .project-date {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 2.5rem;
-            align-items: flex-start;
-            transition: box-shadow 0.2s, transform 0.2s;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
         }
-        .experience-detail-card:hover {
-            box-shadow: 0 16px 48px rgba(37,99,235,0.18);
-            transform: translateY(-4px) scale(1.01);
+
+        .tag {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #c7d2fe;
         }
-        .exp-logo-col {
-            flex: 0 0 180px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-width: 160px;
+
+        /* Enhanced Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
-        .exp-logo-col img {
-            width: 120px;
-            height: 120px;
-            border-radius: 16px;
-            object-fit: contain;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 16px rgba(37,99,235,0.10);
-            background: #fff;
+
+        .skill-category {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #2563eb;
+            transition: transform 0.3s ease;
         }
-        .exp-info-col {
-            flex: 1 1 350px;
-            min-width: 250px;
+
+        .skill-category:hover {
+            transform: translateY(-5px);
         }
-        .exp-title {
-            font-size: 2.2rem;
-            font-weight: 800;
+
+        .skill-category h4 {
             color: #1e293b;
-            margin-bottom: 0.5rem;
-            text-align: left;
-        }
-        .exp-role {
-            font-size: 1.3rem;
             font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h4 i {
             color: #2563eb;
-            margin-bottom: 0.5rem;
         }
-        .exp-duration {
-            font-size: 1.1rem;
-            color: #6b7280;
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1e40af;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* Enhanced Responsibilities */
+        .responsibilities-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .responsibilities-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .responsibilities-list li {
             margin-bottom: 1.5rem;
-        }
-        .exp-desc {
-            font-size: 1.08rem;
-            color: #374151;
-            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #1e293b;
+            padding-left: 3rem;
+            position: relative;
             line-height: 1.7;
         }
-        .exp-list {
-            margin-bottom: 1.2rem;
-            padding-left: 1.2rem;
+
+        .responsibilities-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
-        .exp-list li {
-            margin-bottom: 0.6rem;
-            font-size: 1.05rem;
+
+        /* Enhanced Certification */
+        .certification-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 3px solid #0ea5e9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .certification-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-icon {
+            font-size: 4rem;
+            color: #0ea5e9;
+            background: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+
+        .cert-info h4 {
             color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
+
+        .cert-info p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .cert-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Reflection & Impact Section */
+        .reflection-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 3px solid #f59e0b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reflection-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f59e0b" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23f59e0b" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23f59e0b" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="%23f59e0b" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="%23f59e0b" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .reflection-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .reflection-icon {
+            font-size: 3rem;
+            color: #f59e0b;
+            margin-bottom: 1.5rem;
+        }
+
+        .reflection-text {
+            font-size: 1.2rem;
+            color: #92400e;
+            line-height: 1.8;
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .reflection-highlight {
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        /* Enhanced Project Links */
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #2563eb;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .project-link:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-link.view-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-color: #10b981;
+        }
+
+        .project-link.view-btn:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Back Button */
+        .back-section {
+            background: #1e293b;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
         .btn-back {
-            background: linear-gradient(90deg, #2563eb 60%, #1e40af 100%);
-            color: #fff;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
         }
+
         .btn-back:hover {
-            background: linear-gradient(90deg, #1e40af 60%, #2563eb 100%);
-            transform: translateY(-2px) scale(1.04);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
         }
-        @media (max-width: 900px) {
-            .experience-detail-card {
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .internship-hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-info h1 {
+                font-size: 2.5rem;
+            }
+
+            .company-logo img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certification-content {
                 flex-direction: column;
-                align-items: center;
-                padding: 2rem 1rem;
+                text-align: center;
             }
-            .exp-logo-col {
-                margin-bottom: 1.5rem;
-            }
-            .exp-info-col {
-                min-width: 0;
+
+            .responsibilities-container,
+            .certification-container {
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cover-bg"></div>
-    <div class="animated-bg"></div>
-    <div class="experience-detail-card fade-in-up">
-        <div class="exp-logo-col">
-            <img src="../assets/cellula_technologies_logo.jpeg" alt="Cellula Technologies logo">
-        </div>
-        <div class="exp-info-col">
-            <div class="exp-title">Cellula Technologies</div>
-            <div class="exp-role">NLP Engineer Intern</div>
-            <div class="exp-duration"><strong>Duration:</strong> Jun 2025 - Present</div>
-            <div class="exp-desc">
-                As an NLP Engineer Intern at Cellula Technologies, I am actively involved in developing and optimizing natural language processing models for real-world applications. My responsibilities include:
-            </div>
-            <ul class="exp-list">
-                <li>Designing and implementing NLP pipelines for text classification, sentiment analysis, and information extraction.</li>
-                <li>Collaborating with cross-functional teams to integrate AI solutions into production systems.</li>
-                <li>Conducting research on state-of-the-art NLP techniques and applying them to company projects.</li>
-                <li>Evaluating model performance and iterating to achieve optimal results.</li>
-            </ul>
-            <div class="exp-desc">
-                This internship provides hands-on experience with advanced AI technologies and an opportunity to contribute to impactful projects in the field of natural language processing.
-            </div>
-            <a href="../index.html#experience" class="btn-back">Back to Experience</a>
+    <!-- Navigation Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../index.html">Home</a>
+            <span class="separator">/</span>
+            <a href="../index.html#experience">Experience</a>
+            <span class="separator">/</span>
+            <span>Cellula Technologies</span>
         </div>
     </div>
-    <script>
-        // Parallax effect for animated background
-        document.addEventListener('mousemove', function(e) {
-            const bg = document.querySelector('.animated-bg');
-            if (!bg) return;
-            const x = (e.clientX / window.innerWidth) * 20;
-            const y = (e.clientY / window.innerHeight) * 20;
-            bg.style.backgroundPosition = `${x}% ${y}%`;
-        });
-    </script>
+
+    <!-- Hero Section -->
+    <section class="internship-hero">
+        <div class="internship-hero-content">
+            <div class="company-logo">
+                <img src="../assets/cellula_technologies_logo.jpeg" alt="Cellula Technologies">
+            </div>
+            <div class="hero-info">
+                <h1>Cellula Technologies</h1>
+                <div class="role">NLP Engineer Intern</div>
+                <div class="duration">
+                    <i class="fas fa-calendar-alt"></i>
+                    June 27 – August 27, 2025
+                </div>
+                <p class="description">
+                    As an NLP Engineer Intern at Cellula Technologies, I worked on developing and optimizing natural language processing models for toxic content classification and safety applications. Focused on implementing state-of-the-art transformer models and building production-ready AI solutions that enhance digital safety and content moderation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="internship-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p class="subtitle">Three comprehensive projects showcasing advanced NLP techniques and multi-modal AI systems</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Week 1: Toxic Content Classification -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Toxic Content Classification</h3>
+                        <div class="project-date">Week 1</div>
+                    </div>
+                    <p class="project-description">
+                        Developed two comprehensive toxic content classification models: a deep learning baseline using Bidirectional LSTM (94% accuracy) and a transformer-based model using DistilBERT with PEFT-LoRA fine-tuning. Built a complete data pipeline with preprocessing, tokenization, and evaluation for 9 toxic content categories.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">DistilBERT</span>
+                        <span class="tag">PEFT-LoRA</span>
+                        <span class="tag">LSTM</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Data Pipeline</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="../projects/toxic-content-classification.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/NightPrince/peft-distilbert-toxic-classifier" target="_blank" class="project-link">
+                            <i class="fas fa-brain"></i> DistilBERT Model
+                        </a>
+                        <a href="https://huggingface.co/NightPrince/Toxic_Classification" target="_blank" class="project-link">
+                            <i class="fas fa-brain"></i> LSTM Model
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Week 2: Multi-Modal Safety System -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Dual-Stage Toxic Moderation App</h3>
+                        <div class="project-date">Week 2</div>
+                    </div>
+                    <p class="project-description">
+                        Built a production-ready Streamlit application implementing a dual-stage moderation pipeline combining LlamaGuard for hard filtering and DistilBERT+LoRA for fine-grained classification. Integrated BLIP for image captioning to enable multi-modal content moderation with real-time safety assessments.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">LlamaGuard</span>
+                        <span class="tag">BLIP</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Multi-Modal</span>
+                        <span class="tag">Production App</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="../projects/multi-modal-safety-system.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/spaces/NightPrince/Dual-Stage-Toxic-Moderation" target="_blank" class="project-link">
+                            <i class="fas fa-play"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/NightPrinceY/https-huggingface.co-spaces-NightPrince-Dual-Stage-Toxic-Moderation" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Week 3: RAG Code Generator -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>CodeGenBot - RAG Code Assistant</h3>
+                        <div class="project-date">Week 3</div>
+                    </div>
+                    <p class="project-description">
+                        Developed CodeGenBot, a retrieval-augmented code generation assistant using the HumanEval dataset. Implemented semantic search with Sentence Transformers and integrated DeepSeek-R1-Distill-Qwen-1.5B for context-aware Python code generation through a conversational Streamlit interface.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">CodeGen</span>
+                        <span class="tag">HumanEval</span>
+                        <span class="tag">Vector Search</span>
+                        <span class="tag">Chatbot</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="../projects/rag-code-generator.html" class="project-link view-btn">
+                            <i class="fas fa-eye"></i> View Project
+                        </a>
+                        <a href="https://huggingface.co/spaces/NightPrince/CodeGenBot-RAG-Assistant" target="_blank" class="project-link">
+                            <i class="fas fa-play"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/NightPrinceY/Cellula-NLP-Engineer-Intern/tree/main/Week3" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsibilities Section -->
+    <section class="internship-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Responsibilities</h2>
+                <p class="subtitle">Core contributions and achievements during the internship</p>
+            </div>
+            <div class="responsibilities-container">
+                <ul class="responsibilities-list">
+                    <li>Developed two toxic content classification models: Bidirectional LSTM baseline (94% accuracy) and DistilBERT with PEFT-LoRA fine-tuning, including complete data pipeline with preprocessing and evaluation</li>
+                    <li>Built a production-ready dual-stage moderation system combining LlamaGuard for hard filtering and DistilBERT+LoRA for fine-grained classification, with BLIP integration for multi-modal content analysis</li>
+                    <li>Implemented a retrieval-augmented code generation assistant using HumanEval dataset, semantic search with Sentence Transformers, and DeepSeek-R1-Distill-Qwen-1.5B for context-aware Python code generation</li>
+                    <li>Created modular, production-ready Streamlit applications with comprehensive error handling, real-time processing, and professional user interfaces</li>
+                    <li>Conducted extensive benchmarking, model selection, and performance optimization, addressing class imbalance and ensuring real-world reliability</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <section class="internship-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills & Technologies</h2>
+                <p class="subtitle">Technologies, frameworks, and methodologies mastered during the internship</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-brain"></i> Machine Learning</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PEFT-LoRA</span>
+                        <span class="skill-tag">LSTM</span>
+                        <span class="skill-tag">Transformers</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-language"></i> NLP & Vision Models</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">DistilBERT</span>
+                        <span class="skill-tag">LlamaGuard</span>
+                        <span class="skill-tag">BLIP</span>
+                        <span class="skill-tag">DeepSeek-R1</span>
+                        <span class="skill-tag">Sentence Transformers</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Development & Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Hugging Face</span>
+                        <span class="skill-tag">Vector Search</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-tools"></i> AI/ML Applications</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Content Moderation</span>
+                        <span class="skill-tag">RAG Systems</span>
+                        <span class="skill-tag">Multi-Modal AI</span>
+                        <span class="skill-tag">Code Generation</span>
+                        <span class="skill-tag">Production Deployment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="internship-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Certification</h2>
+                <p class="subtitle">Official recognition of successful internship completion</p>
+            </div>
+            <div class="certification-container">
+                <div class="certification-content">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>NLP Engineer Internship Certificate</h4>
+                        <p>Successfully completed the NLP Engineer Internship at Cellula Technologies, demonstrating proficiency in transformer models, fine-tuning techniques, and building production-ready AI applications for content safety and moderation.</p>
+                        <a href="../info/Certificate.pdf" target="_blank" class="cert-link">
+                            <i class="fas fa-download"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection & Impact Section -->
+    <section class="internship-section">
+        <div class="container">
+            <div class="reflection-container">
+                <div class="reflection-content">
+                    <div class="reflection-icon"><i class="fas fa-lightbulb"></i></div>
+                    <p class="reflection-text">
+                        This internship was a transformative experience that deepened my understanding of natural language processing, multi-modal AI systems, and production-ready AI applications. Working on three distinct but interconnected projects allowed me to develop expertise across the entire AI development pipeline, from data preprocessing to production deployment.
+                    </p>
+                    <p class="reflection-text">
+                        I am particularly proud of the <span class="reflection-highlight">Dual-Stage Toxic Moderation App</span> I developed in Week 2, which successfully integrated LlamaGuard, DistilBERT+LoRA, and BLIP to create a comprehensive multi-modal content moderation system. This project demonstrated my ability to combine multiple state-of-the-art models into a production-ready application with real-time processing capabilities.
+                    </p>
+                    <p class="reflection-text">
+                        The experience at Cellula Technologies has equipped me with the confidence and expertise to tackle complex AI challenges, from building robust data pipelines to implementing cutting-edge transformer models and deploying scalable AI applications that make a meaningful impact on digital safety and developer productivity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back Button Section -->
+    <section class="back-section">
+        <div class="container">
+            <a href="../index.html#experience" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Experience
+            </a>
+        </div>
+    </section>
+
     <script src="../js/main.js"></script>
 </body>
 </html>
