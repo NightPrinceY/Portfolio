@@ -42,21 +42,21 @@ body {
 .nav-logo {
     display: flex;
     align-items: center;
-    white-space: nowrap; /* Prevents wrapping */
+    white-space: nowrap;
 }
 
 .nav-logo h2 {
     color: #2563eb;
     font-weight: 700;
-    font-size: 1.8rem; /* Slightly larger font */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove padding */
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-container {
-    max-width: 1400px; /* Make the navigation bar wider */
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 30px; /* Add more padding for spacing */
+    padding: 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,7 +64,7 @@ body {
 
 .nav-menu {
     display: flex;
-    gap: 2.5rem; /* Increase spacing between links */
+    gap: 2.5rem;
     list-style: none;
 }
 
@@ -96,9 +96,9 @@ body {
 }
 
 .nav-link.btn-resume {
-    background-color: #007bff; /* Blue background */
-    color: #fff; /* White text */
-    padding: 10px 20px; /* Adjust padding for better button size */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
@@ -106,7 +106,7 @@ body {
 }
 
 .nav-link.btn-resume:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 .hamburger {
@@ -272,23 +272,14 @@ body {
     border-color: rgba(37, 99, 235, 0.5);
 }
 
-/* Hero image animations */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 @keyframes pulse-glow {
-    0% {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 99, 235, 0.1);
-    }
-    100% {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 20px rgba(37, 99, 235, 0);
-    }
+    0% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 99, 235, 0.1); }
+    100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 20px rgba(37, 99, 235, 0); }
 }
 
 /* Section Styles */
@@ -355,10 +346,7 @@ body {
     background: #2563eb;
     color: #fff;
 }
-.stat:hover h3,
-.stat:hover p {
-    color: #fff;
-}
+.stat:hover h3, .stat:hover p { color: #fff; }
 
 .stat h3 {
     font-size: 2.5rem;
@@ -398,9 +386,7 @@ body {
 .education-item:hover h4,
 .education-item:hover .education-school,
 .education-item:hover .education-date,
-.education-item:hover .education-location {
-    color: #fff;
-}
+.education-item:hover .education-location { color: #fff; }
 .education-item:hover .education-logo {
     box-shadow: 0 4px 24px rgba(255,255,255,0.18);
     background: #fff;
@@ -413,9 +399,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.edu-item-link{
-    text-decoration: none;
-}
+.edu-item-link { text-decoration: none; }
 
 .education-school {
     font-weight: 600;
@@ -429,9 +413,7 @@ body {
     margin-bottom: 0.3rem;
 }
 
-.education-location {
-    color: #6b7280;
-}
+.education-location { color: #6b7280; }
 
 .education-logo {
     width: 60px;
@@ -537,9 +519,7 @@ body {
     transition: color 0.3s ease;
 }
 
-.project-link:hover {
-    color: #1d4ed8;
-}
+.project-link:hover { color: #1d4ed8; }
 
 /* Experience Section */
 .experience {
@@ -752,9 +732,7 @@ body {
     transition: color 0.3s ease;
 }
 
-.certification-link:hover {
-    color: #1d4ed8;
-}
+.certification-link:hover { color: #1d4ed8; }
 
 .certification-skills {
     color: #4b5563;
@@ -817,9 +795,7 @@ body {
     text-decoration: none;
 }
 
-.contact-item a:hover {
-    text-decoration: underline;
-}
+.contact-item a:hover { text-decoration: underline; }
 
 /* Enhanced Contact Form Styles */
 .contact-form-container {
@@ -917,9 +893,7 @@ body {
         min-height: 0;
         padding: 1.5rem 0.7rem 1.5rem 0.7rem;
     }
-    .contact-form h3 {
-        font-size: 1.5rem;
-    }
+    .contact-form h3 { font-size: 1.5rem; }
 }
 
 /* Footer */
@@ -930,9 +904,7 @@ body {
     text-align: center;
 }
 
-.footer-content p {
-    margin-bottom: 0.5rem;
-}
+.footer-content p { margin-bottom: 0.5rem; }
 
 /* Volunteering Section */
 .volunteering {
@@ -1019,9 +991,7 @@ body {
     transform: translateY(-4px) scale(1.025);
 }
 .language-card:hover h3,
-.language-card:hover .language-proficiency {
-    color: #fff;
-}
+.language-card:hover .language-proficiency { color: #fff; }
 
 .language-card h3 {
     color: #1f2937;
@@ -1068,9 +1038,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+    .hamburger { display: flex; }
 
     .nav-menu {
         position: fixed;
@@ -1085,26 +1053,12 @@ body {
         padding: 2rem 0;
     }
 
-    .nav-menu.active {
-        left: 0;
-    }
+    .nav-menu.active { left: 0; }
+    .nav-menu a { padding: 1rem; display: block; }
 
-    .nav-menu a {
-        padding: 1rem;
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     .hero-container {
         grid-template-columns: 1fr;
@@ -1112,102 +1066,42 @@ body {
         gap: 2rem;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
-    }
+    .hero-title { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .about-content { grid-template-columns: 1fr; gap: 2rem; }
+    .about-stats { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
 
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+    .timeline-item { padding-left: 60px; }
+    .experience-timeline::before { left: 20px; }
+    .timeline-item::before { left: 11px; }
 
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .timeline-item {
-        padding-left: 60px;
-    }
-
-    .experience-timeline::before {
-        left: 20px;
-    }
-
-    .timeline-item::before {
-        left: 11px;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .achievements-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
+    .skills-grid { grid-template-columns: 1fr; }
+    .achievements-grid { grid-template-columns: 1fr; }
+    .contact-content { grid-template-columns: 1fr; gap: 2rem; }
+    .section-title { font-size: 2rem; }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .container {
-        padding: 0 15px;
-    }
-
-    .project-card,
-    .timeline-content,
-    .contact-form {
-        padding: 1.5rem;
-    }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .container { padding: 0 15px; }
+    .project-card, .timeline-content, .contact-form { padding: 1.5rem; }
 }
 
 /* Animations */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
-}
+.fade-in-up { animation: fadeInUp 0.6s ease-out; }
 
-/* Smooth scrolling offset for fixed navbar */
-section {
-    scroll-margin-top: 80px;
-}
+section { scroll-margin-top: 80px; }
 
 .nav-link.btn-resume {
-    background-color: #007bff; /* Blue background */
-    color: #fff; /* White text */
+    background-color: #007bff;
+    color: #fff;
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -1215,9 +1109,7 @@ section {
     transition: background-color 0.3s ease;
 }
 
-.nav-link.btn-resume:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
+.nav-link.btn-resume:hover { background-color: #0056b3; }
 
 .more-details-btn {
     margin-top: 1rem;
@@ -1240,56 +1132,254 @@ section {
 
 /* Confirmation Modal Styles */
 .modal {
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.5);
-  display: flex; align-items: center; justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
 }
 .modal-content {
-  background: #fff;
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 2px 32px rgba(0,0,0,0.18);
-  min-width: 320px;
-  animation: popIn 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+    background: #fff;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 2px 32px rgba(0,0,0,0.18);
+    min-width: 320px;
+    animation: popIn 0.4s cubic-bezier(.68,-0.55,.27,1.55);
 }
 @keyframes popIn {
-  0% { transform: scale(0.7); opacity: 0; }
-  80% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); }
+    0% { transform: scale(0.7); opacity: 0; }
+    80% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
 }
 .modal-icon {
-  margin-bottom: 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .modal-title {
-  color: #2196f3;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.7rem;
+    color: #2196f3;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
 }
 .modal-message {
-  color: #333;
-  font-size: 1.1rem;
-  margin-bottom: 1.7rem;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 1.7rem;
 }
 .modal-btn {
-  background: #2196f3;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  padding: 0.9rem 2.5rem;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 4px 16px rgba(33,150,243,0.08);
+    background: #2196f3;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 16px rgba(33,150,243,0.08);
 }
 .modal-btn:hover {
-  background: #1769aa;
-  transform: translateY(-2px) scale(1.04);
+    background: #1769aa;
+    transform: translateY(-2px) scale(1.04);
 }
+
+
+/* ============================================================
+   DARK MODE — overrides every hardcoded white / light colour
+   These rules fire when <html data-theme="dark"> is set
+   ============================================================ */
+
+[data-theme="dark"] body {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+}
+
+/* ---------- Navbar ---------- */
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.97) !important;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important;
+}
+[data-theme="dark"] .nav-link { color: #cbd5e1 !important; }
+[data-theme="dark"] .nav-link:hover { color: #60a5fa !important; }
+[data-theme="dark"] .bar { background-color: #cbd5e1 !important; }
+[data-theme="dark"] .nav-menu { background-color: #1e293b !important; }
+
+/* ---------- Sections backgrounds ---------- */
+[data-theme="dark"] .about,
+[data-theme="dark"] .projects,
+[data-theme="dark"] .languages,
+[data-theme="dark"] .volunteering,
+[data-theme="dark"] .contact,
+[data-theme="dark"] .experience,
+[data-theme="dark"] .certifications,
+[data-theme="dark"] .skills,
+[data-theme="dark"] .achievements {
+    background-color: #0f172a !important;
+}
+
+/* Alternate sections slightly lighter */
+[data-theme="dark"] .about,
+[data-theme="dark"] .certifications,
+[data-theme="dark"] .skills,
+[data-theme="dark"] .volunteering,
+[data-theme="dark"] .languages,
+[data-theme="dark"] .contact {
+    background-color: #1e293b !important;
+}
+
+/* ---------- All white cards ---------- */
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .experience-card,
+[data-theme="dark"] .certification-card,
+[data-theme="dark"] .volunteering-card,
+[data-theme="dark"] .achievement-card,
+[data-theme="dark"] .skill-category,
+[data-theme="dark"] .contact-info,
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .stat,
+[data-theme="dark"] .education-item,
+[data-theme="dark"] .language-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .interactive-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+/* ---------- Text inside cards ---------- */
+[data-theme="dark"] .project-header h3,
+[data-theme="dark"] .project-description,
+[data-theme="dark"] .experience-card h3,
+[data-theme="dark"] .experience-card p,
+[data-theme="dark"] .certification-card h3,
+[data-theme="dark"] .certification-organization,
+[data-theme="dark"] .certification-date,
+[data-theme="dark"] .certification-id,
+[data-theme="dark"] .certification-skills,
+[data-theme="dark"] .volunteering-card h3,
+[data-theme="dark"] .volunteering-organization,
+[data-theme="dark"] .volunteering-date,
+[data-theme="dark"] .volunteering-description,
+[data-theme="dark"] .achievement-card h3,
+[data-theme="dark"] .achievement-card p,
+[data-theme="dark"] .skill-category h3,
+[data-theme="dark"] .contact-info h3,
+[data-theme="dark"] .contact-item h4,
+[data-theme="dark"] .stat p,
+[data-theme="dark"] .education-school,
+[data-theme="dark"] .education-date,
+[data-theme="dark"] .education-location,
+[data-theme="dark"] .education-item h4,
+[data-theme="dark"] .language-card h3,
+[data-theme="dark"] .language-proficiency,
+[data-theme="dark"] .testimonial-text,
+[data-theme="dark"] .testimonial-info h4,
+[data-theme="dark"] .testimonial-info p,
+[data-theme="dark"] .about-text p,
+[data-theme="dark"] .about-education h3,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .experience-description,
+[data-theme="dark"] .modal-message {
+    color: #cbd5e1 !important;
+}
+
+/* Keep headings bright white */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .experience-card h3,
+[data-theme="dark"] .certification-card h3,
+[data-theme="dark"] .volunteering-card h3,
+[data-theme="dark"] .project-header h3,
+[data-theme="dark"] .skill-category h3,
+[data-theme="dark"] .contact-info h3,
+[data-theme="dark"] .language-card h3,
+[data-theme="dark"] .testimonial-info h4,
+[data-theme="dark"] .about-education h3 {
+    color: #f1f5f9 !important;
+}
+
+/* ---------- Stat numbers ---------- */
+[data-theme="dark"] .stat h3 { color: #60a5fa !important; }
+
+/* ---------- Tags & skill items ---------- */
+[data-theme="dark"] .tag {
+    background: linear-gradient(135deg, #1e3a8a, #1e40af) !important;
+    color: #bfdbfe !important;
+    border-color: #1d4ed8 !important;
+}
+[data-theme="dark"] .skill-item {
+    background: #1e3a8a !important;
+    color: #bfdbfe !important;
+    border-color: #1d4ed8 !important;
+}
+[data-theme="dark"] .skill-item:hover {
+    background: #2563eb !important;
+    color: white !important;
+}
+
+/* ---------- Form inputs ---------- */
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form textarea {
+    background: #0f172a !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder {
+    color: #64748b !important;
+}
+[data-theme="dark"] .contact-form input:focus,
+[data-theme="dark"] .contact-form textarea:focus {
+    background: #1e293b !important;
+    border-color: #3b82f6 !important;
+}
+[data-theme="dark"] .contact-form {
+    border-color: #334155 !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+
+/* ---------- Footer ---------- */
+[data-theme="dark"] .footer {
+    background-color: #020617 !important;
+}
+[data-theme="dark"] .footer p { color: #94a3b8 !important; }
+
+/* ---------- Hover states in dark mode ---------- */
+[data-theme="dark"] .project-card:hover,
+[data-theme="dark"] .experience-card:hover,
+[data-theme="dark"] .certification-card:hover,
+[data-theme="dark"] .volunteering-card:hover,
+[data-theme="dark"] .testimonial-card:hover {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* ---------- Education logo bg in dark ---------- */
+[data-theme="dark"] .education-logo { background: #f1f5f9 !important; }
+
+/* ---------- Skill bar track ---------- */
+[data-theme="dark"] .skill-bar-track { background: #1e3a8a !important; }
+
+/* ---------- Contact item links ---------- */
+[data-theme="dark"] .contact-item a { color: #60a5fa !important; }
+
+/* ---------- Certification link ---------- */
+[data-theme="dark"] .certification-link { color: #60a5fa !important; }
+
+/* ---------- More details button ---------- */
+[data-theme="dark"] .more-details-btn {
+    background-color: #1d4ed8 !important;
+}
+
+/* ---------- Testimonial quote icon ---------- */
+[data-theme="dark"] .testimonial-quote-icon { color: #60a5fa !important; }
+
+/* ---------- Modal in dark ---------- */
+[data-theme="dark"] .modal-content {
+    background: #1e293b !important;
+}
+[data-theme="dark"] .modal-message { color: #cbd5e1 !important; }
